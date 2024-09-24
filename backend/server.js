@@ -19,7 +19,7 @@ app.use(express.json());
 //   next();
 // });
 
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 
 // route
 app.use("/api/workouts", workoutRoutes);

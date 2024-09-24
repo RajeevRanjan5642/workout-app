@@ -42,7 +42,7 @@ exports.createWorkout = async (req, res, next) => {
     emptyFields.push("reps");
   }
   if (emptyFields.length > 0) {
-    return next(errorHandler(400, `Please fill all the details: ${emptyFields}`));
+    return res.status(400).json({ error: 'Please fill in all fields', emptyFields });
   }
   try {
     const workout = await Workout.create({ title, load, reps });
@@ -59,8 +59,8 @@ exports.deleteWorkout = async (req, res, next) => {
     return next(errorHandler(400, "No such workout"));
   }
   try {
-    await Workout.findByIdAndDelete(id);
-    res.status(200).json({ msg: "workout has been deleted", status: true });
+    const workout = await Workout.findByIdAndDelete(id);
+    res.status(200).json(workout);
   } catch (err) {
     next(err);
   }
