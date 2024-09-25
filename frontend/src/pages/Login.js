@@ -5,7 +5,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
   };
   return (
     <form action="" className="login" onSubmit={handleSubmit}>
