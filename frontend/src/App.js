@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
+import Welcome from "./pages/Welcome";
+import PageNotFound from "./pages/PageNotFound"
 import { useAuthContext } from "./components/hooks/useAuthContext";
 
 const App = () => {
@@ -20,7 +22,7 @@ const App = () => {
           <Routes>
             <Route
               path="/"
-              element={user ? <Home /> : <Navigate to="/login" />}
+              element={user ? <Home /> : <Welcome />}
             />
             <Route
               path="/login"
@@ -30,6 +32,8 @@ const App = () => {
               path="/signup"
               element={!user ? <Signup /> : <Navigate to="/" />}
             />
+            <Route path="*"
+            element={<PageNotFound/>}/>
           </Routes>
         </div>
       </Router>
