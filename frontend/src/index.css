@@ -7,7 +7,7 @@
   --error: #f85959;
 }
 body {
-  background: #fafafa;
+  background: #faf9f9;
   margin: 0;
   font-family: "Poppins";
 }
@@ -181,6 +181,10 @@ form.signup, form.login {
   padding: 20px;
   background: #fff;
   border-radius: 4px;
+}
+
+form.login .new{
+  text-align: center;
 }
 
 .not-found{
