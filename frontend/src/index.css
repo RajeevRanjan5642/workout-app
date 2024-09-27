@@ -183,9 +183,11 @@ form.signup, form.login {
   border-radius: 4px;
 }
 
-form.login .new{
+.form-foot{
   text-align: center;
+  margin-top: 20px;
 }
+
 
 .not-found{
   width: 500px;
