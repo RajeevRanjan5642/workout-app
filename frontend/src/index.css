@@ -56,10 +56,9 @@ header a {
   bottom: 120px;
   text-align: center;
   color: #3e4f5b;
+  padding: 5px 122px;
 }
-.welcome-text{
-  padding: 5px 125px;
-}
+
 
 .welcome-btn{
   padding: 10px 35px;
