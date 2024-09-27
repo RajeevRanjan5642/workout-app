@@ -4,7 +4,7 @@ const Welcome = () => {
   const navigate = useNavigate();
   return (
     <div className="welcome">
-      <img src={process.env.PUBLIC_URL + "./yoga.png"} alt="" className="welcome-img"/>
+      <img src={process.env.PUBLIC_URL + "./yog.jpeg"} alt="" className="welcome-img"/>
       <div className="welcome-content">
         <h1 className="welcome-title">Welcome to FitTrack!</h1>
         <p className="welcome-text">
