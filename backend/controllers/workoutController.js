@@ -31,7 +31,7 @@ exports.getWorkout = async (req, res, next) => {
 
 // create a new workout
 exports.createWorkout = async (req, res, next) => {
-  const { title, load, reps } = req.body;
+  const { title, load, reps, sets } = req.body;
   let emptyFields = [];
   if (!title) {
     emptyFields.push("title");
@@ -42,6 +42,10 @@ exports.createWorkout = async (req, res, next) => {
   if (!reps) {
     emptyFields.push("reps");
   }
+  if (!sets) {
+    emptyFields.push("sets");
+  }
+
   if (emptyFields.length > 0) {
     return res
       .status(400)
@@ -49,7 +53,7 @@ exports.createWorkout = async (req, res, next) => {
   }
   try {
     const user_id = req.user._id;
-    const workout = await Workout.create({ title, load, reps, user_id });
+    const workout = await Workout.create({ title, load, reps, sets, user_id });
     res.status(200).json(workout);
   } catch (err) {
     next(err);

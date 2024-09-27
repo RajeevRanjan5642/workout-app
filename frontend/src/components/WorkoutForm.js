@@ -7,6 +7,7 @@ const WorkoutForm = () => {
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
   const [reps, setReps] = useState("");
+  const [sets, setSets] = useState("");
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
   const { user } = useAuthContext();
@@ -19,7 +20,7 @@ const WorkoutForm = () => {
       return;
     }
 
-    const workout = { title, load, reps };
+    const workout = { title, load, reps,sets };
 
     const response = await fetch("/api/workouts", {
       method: "POST",
@@ -39,6 +40,7 @@ const WorkoutForm = () => {
       setTitle("");
       setLoad("");
       setReps("");
+      setSets("");
       setError(null);
       setEmptyFields([]);
       dispatch({ type: "CREATE_WORKOUT", payload: json });
@@ -68,6 +70,13 @@ const WorkoutForm = () => {
         onChange={(e) => setReps(e.target.value)}
         value={reps}
         className={emptyFields.includes("reps") ? "error" : ""}
+      />
+      <label>Sets:</label>
+      <input
+        type="number"
+        onChange={(e) => setSets(e.target.value)}
+        value={sets}
+        className={emptyFields.includes("sets") ? "error" : ""}
       />
       <button>Add Workout</button>
       {error && <div className="error">{error}</div>}
