@@ -53,20 +53,24 @@ header a {
 
 .welcome-content{
   position:absolute;
-  bottom: 150px;
+  bottom: 120px;
   text-align: center;
   color: #3e4f5b;
-  /* padding: 80px; */
 }
-.description{
+.welcome-text{
   padding: 5px 125px;
 }
 
-/* .welcome-heading{
-  border-radius: 50%;
-} */
-
-
+.welcome-btn{
+  padding: 10px 35px;
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 30px;
+  border: none;
+  font-family: "Poppins";
+  font-size: 17px;
+  cursor: pointer;
+}
 
 .workout-details {
   background: #fff;
