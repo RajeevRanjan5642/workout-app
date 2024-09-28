@@ -7,12 +7,12 @@
   --error: #f85959;
 }
 body {
-  background: #faf9f9;
+  background: #e9eae4;
   margin: 0;
   font-family: "Poppins";
 }
 header {
-  background: #fff;
+  background: #fcfbf6;
 }
 header .container {
   max-width: 1400px;
@@ -41,7 +41,7 @@ header a {
 }
 
 .workout-details {
-  background: #fff;
+  background: #fcfbf6;
   border-radius: 5px;
   margin: 20px auto;
   padding: 20px;
@@ -63,7 +63,7 @@ header a {
   top: 20px;
   right: 20px;
   cursor: pointer;
-  background: #f1f1f1;
+  background: #efeee9;
   padding: 6px;
   border-radius: 50%;
   color: #9b7e68;
@@ -91,10 +91,14 @@ header a {
   padding: 5px 120px;
 }
 
+.welcome-text{
+  color: #3e4f5b;
+}
+
 .welcome-btn{
   padding: 10px 35px;
   background-color: var(--primary);
-  color: #fff;
+  color: #fcfbf6;
   border-radius: 30px;
   border: none;
   font-family: "Poppins";
@@ -105,13 +109,14 @@ header a {
 /* new workout form */
 label, input {
   display: block;
+  color: #3e4f5b;
 }
 input {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid #e1e0dc;
   border-radius: 4px;
   box-sizing: border-box;
   color: #3e4f5b;
@@ -119,14 +124,14 @@ input {
 .create,.edit{
   height: 500px;
   padding: 20px;
-  background-color: #fff;
+  background-color: #fcfbf6;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
 }
 form button {
   background: var(--primary);
   border: 0;
-  color: #fff;
+  color: #fcfbf6;
   padding: 10px;
   font-family: "Poppins";
   border-radius: 4px;
@@ -160,7 +165,7 @@ nav a {
   margin-left: 10px;
 }
 nav button {
-  background: #fff;
+  background: #fcfbf6;
   color: var(--primary);
   border: 2px solid var(--primary);
   padding: 6px 10px;
@@ -172,7 +177,7 @@ nav button {
 }
 .nav-link-signup{
   background: var(--primary);
-  color: #fff;
+  color: #fcfbf6;
   padding: 6px 10px;
   border-radius: 4px;
   font-family: "Poppins";
@@ -185,13 +190,14 @@ form.signup, form.login {
   max-width: 400px;
   margin: 40px auto;
   padding: 20px;
-  background: #fff;
+  background: #fcfbf6;
   border-radius: 4px;
 }
 
 .form-foot{
   text-align: center;
   margin-top: 20px;
+  color: #3e4f5b;
 }
 
 
@@ -209,7 +215,6 @@ form.signup, form.login {
 }
 
 /* workout edit form */
-
 .workout-edit{
   margin: 0 auto;
 }
