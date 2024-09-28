@@ -217,8 +217,22 @@ form.signup, form.login {
 /* workout edit form */
 .workout-edit{
   margin: 0 auto;
+  position: relative;
 }
 .edit{
   width: 325px;
   margin: auto;
 }
+
+.workout-edit span{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #efeee9;
+  padding: 6px;
+  border-radius: 50%;
+  color: #9b7e68;
+}
+
+

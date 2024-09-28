@@ -75,6 +75,16 @@ const WorkoutEditForm = ({
     }
   };
 
+  const handleClick = ()=>{
+    setShowEditForm(false);
+    setError(null);
+    setTitle("");
+    setLoad("");
+    setReps("");
+    setSets("");
+    setEmptyFields([]);
+  }
+
   return (
     <div className="workout-edit">
       <form className="edit" onSubmit={handleSubmit}>
@@ -117,6 +127,13 @@ const WorkoutEditForm = ({
         <button className="edit-btn">Edit</button>
         {error && <div className="error">{error}</div>}
       </form>
+      <span
+          className="material-symbols-outlined"
+          style={{ marginRight: "45px" }}
+          onClick={handleClick}
+        >
+          close
+        </span>
     </div>
   );
 };
