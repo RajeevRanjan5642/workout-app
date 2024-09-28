@@ -20,6 +20,7 @@ export const workoutsReducer = (state, action) => {
             w.load = action.payload.load;
             w.reps = action.payload.reps;
             w.sets = action.payload.sets;
+            w.updatedAt = action.payload.updatedAt;
           }
           return w;
         }),

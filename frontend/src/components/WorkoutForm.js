@@ -20,7 +20,7 @@ const WorkoutForm = () => {
       return;
     }
 
-    const workout = { title, load, reps,sets };
+    const workout = { title, load, reps, sets };
 
     const response = await fetch("/api/workouts", {
       method: "POST",

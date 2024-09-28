@@ -31,7 +31,7 @@ const WorkoutEditForm = ({
       setError("You must be logged in");
       return;
     }
-    const workouts = { title, load, reps,sets };
+    const workouts = { title, load, reps, sets };
     if (title === "") {
       workouts.title = workout.title;
     }
@@ -70,13 +70,7 @@ const WorkoutEditForm = ({
       setEmptyFields([]);
       dispatch({
         type: "EDIT_WORKOUT",
-        payload: {
-          ...json,
-          title: workouts.title,
-          reps: workouts.reps,
-          sets: workouts.sets,
-          load: workouts.load,
-        },
+        payload: json,
       });
     }
   };
