@@ -14,7 +14,7 @@ const app = express();
 //middleware
 app.use(express.json());
 
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 
 // route
 app.use("/api/workouts", workoutRoutes);
@@ -35,7 +35,7 @@ mongoose
   .then(() => {
     // listen for requests
     app.listen(process.env.PORT, () => {
-      console.log(`server is listening at port ${process.env.PORT}`);
+      // console.log(`server is listening at port ${process.env.PORT}`);
     });
   })
   .catch((err) => console.log(err));
