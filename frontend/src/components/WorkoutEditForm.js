@@ -31,7 +31,7 @@ const WorkoutEditForm = ({
       setError("You must be logged in");
       return;
     }
-    const workouts = { title, load, reps };
+    const workouts = { title, load, reps,sets };
     if (title === "") {
       workouts.title = workout.title;
     }
@@ -59,6 +59,7 @@ const WorkoutEditForm = ({
       setError(json.error);
       setEmptyFields(json.emptyFields);
     }
+
     if (response.ok) {
       setShowEditForm(false);
       setError(null);
@@ -78,15 +79,6 @@ const WorkoutEditForm = ({
         },
       });
     }
-  };
-  const handleClose = () => {
-    setShowEditForm(false);
-    setError(null);
-    setTitle("");
-    setLoad("");
-    setReps("");
-    setSets("");
-    setEmptyFields([]);
   };
 
   return (
@@ -128,9 +120,7 @@ const WorkoutEditForm = ({
           className={emptyFields.includes("sets") ? "error" : ""}
           required
         />
-        <button className="close" onClick={handleClose}>
-          Edit
-        </button>
+        <button className="edit-btn">Edit</button>
         {error && <div className="error">{error}</div>}
       </form>
     </div>

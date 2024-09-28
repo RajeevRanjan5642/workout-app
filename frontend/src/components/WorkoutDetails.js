@@ -12,13 +12,16 @@ const WorkoutDetails = ({
 }) => {
   const { user } = useAuthContext();
   const { dispatch } = useWorkoutsContext();
+
   const [showEditForm, setShowEditForm] = useState(false);
   const [isUpdate, setIsUpdate] = useState(false);
+
   useEffect(() => {
     if (workout.createdAt !== workout.updatedAt) {
       setIsUpdate(true);
     }
   }, [showWhichEditForm, workout]);
+
   const handleClick = async () => {
     if (!user) return;
     const response = await fetch("/api/workouts/" + workout._id, {
@@ -28,6 +31,7 @@ const WorkoutDetails = ({
       },
     });
     const json = await response.json();
+
     if (response.ok) {
       dispatch({ type: "DELETE_WORKOUT", payload: json });
     }
@@ -36,6 +40,7 @@ const WorkoutDetails = ({
     setShowWhichEditForm(id);
     setShowEditForm(true);
   };
+
   return (
     <>
       <div className="workout-details">
@@ -56,7 +61,7 @@ const WorkoutDetails = ({
           <strong>Created:</strong>
           {formatDistanceToNow(new Date(workout.createdAt), {
             addSuffix: true,
-          })}
+          }).replace("about", "About")}
         </p>
         {isUpdate ? (
           <p>
@@ -79,6 +84,7 @@ const WorkoutDetails = ({
           delete
         </span>
       </div>
+      
       {showEditForm && (
         <WorkoutEditForm
           key={id}

@@ -230,10 +230,10 @@ form.signup, form.login {
   border-radius: 4px;
   box-sizing: border-box;
 }
-.close{
-  background: var(--error);
-  border: 0;
-  margin-left: 10px;
+.edit-btn{
+  background: var(--primary);
+  border: none;
+  /* margin-left: 10px; */
   color: #fff;
   padding: 10px;
   font-family: "Poppins";
