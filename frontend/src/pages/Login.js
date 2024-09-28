@@ -30,7 +30,7 @@ const Login = () => {
 
       <button disabled={isLoading}>Login</button>
       {error && <div className="error">{error}</div>}
-      <p className="form-foot">New to FitTrack? <Link to="/signup">Create One</Link></p>
+      <p className="form-foot">New to Workout Buddy? <Link to="/signup">Create One</Link></p>
     </form>
   );
 };
