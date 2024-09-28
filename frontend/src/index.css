@@ -116,7 +116,8 @@ input {
   box-sizing: border-box;
   color: #3e4f5b;
 }
-form.create{
+.create,.edit{
+  height: 500px;
   padding: 20px;
   background-color: #fff;
   border-radius: 5px;
@@ -210,33 +211,9 @@ form.signup, form.login {
 /* workout edit form */
 
 .workout-edit{
-  
   margin: 0 auto;
 }
 .edit{
-  width: 400px;
-    margin: auto;
-}
-.workout-edit > label,
-.workout-edit > input {
-  display: inline-block;
-}
-.workout-edit > input {
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  width:100px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-.edit-btn{
-  background: var(--primary);
-  border: none;
-  /* margin-left: 10px; */
-  color: #fff;
-  padding: 10px;
-  font-family: "Poppins";
-  border-radius: 4px;
-  cursor: pointer;
+  width: 325px;
+  margin: auto;
 }

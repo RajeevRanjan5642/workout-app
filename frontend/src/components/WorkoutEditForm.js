@@ -78,7 +78,7 @@ const WorkoutEditForm = ({
   return (
     <div className="workout-edit">
       <form className="edit" onSubmit={handleSubmit}>
-        <h3>Edit Workout</h3>
+        <h3 className="form-heading">Edit Workout</h3>
 
         <label>Exercise Title:</label>
         <input
