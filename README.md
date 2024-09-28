@@ -28,17 +28,15 @@ Before running the project, ensure you have the following installed:
     
 ### 2. Install all dependencies
 
-    cd frontend
-    npm install
     cd backend
     npm install
     
 ### 3. Create .env file
-Create .env file and add the following
+Create .env file in the backend folder and add the following
 
-    PORT=your-port-number
-    MONGO_URI=your-mongodb-connection-string
-    SECRET=your-secret-string
+    PORT=<your-port-no>
+    MONGO_URI=<your-mongodb-connection-string>
+    SECRET=<your-secret-string>
     
 ### 3. Run the project locally
 First run the server on a terminal (make sure you are in backend folder)
@@ -48,4 +46,5 @@ First run the server on a terminal (make sure you are in backend folder)
 Open new terminal and run the website 
 
     cd frontend
+    npm install
     npm start
