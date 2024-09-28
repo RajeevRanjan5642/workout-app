@@ -4,7 +4,7 @@
 /* layout */
 :root {
   --primary: #ebe7f5;
-  --error: #f85959;
+  --error: #FF980E;
 }
 body {
   background: #ffffff;
@@ -112,7 +112,7 @@ input {
   margin-top: 10px;
   margin-bottom: 20px;
   width: 100%;
-  border: 1px solid #ebe7f5;
+  border: 1px solid var(--primary);
   border-radius: 5px;
   box-sizing: border-box;
   background-color: #fff;
@@ -121,7 +121,7 @@ input {
 .create,.edit{
   height: 500px;
   padding: 25px;
-  background-color: #ebe7f5;
+  background-color:var(--primary);
   border-radius: 8px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
 }
@@ -143,7 +143,7 @@ form button {
 /* #4b5e6d */
 div.error {
   padding: 10px;
-  background: #ffefef;
+  background: #fff;
   border: 1px solid var(--error);
   color: var(--error);
   border-radius: 4px;
@@ -167,6 +167,7 @@ nav button {
   color: #6e8c82;
   padding: 6px 10px;
   border-radius: 5px;
+  border: 1px solid var(--primary);
   font-family: "Poppins";
   cursor: pointer;
   font-size: 1em;
@@ -187,7 +188,7 @@ form.signup, form.login {
   max-width: 400px;
   margin: 40px auto;
   padding: 25px;
-  background: #ebe7f5;
+  background: var(--primary);
   border-radius: 8px;
 }
 
@@ -213,18 +214,20 @@ form.signup, form.login {
 
 /* workout edit form */
 .workout-edit{
-  margin: 0 auto;
+  width: 325px;
   position: relative;
+  margin: 0 auto; 
 }
 .edit{
-  width: 325px;
-  margin: auto;
+  width: 100%;
+  /* margin: auto; */
 }
 
 .workout-edit span{
   position: absolute;
   top: 20px;
-  right: 20px;
+  /* right: 10px; */
+  left: 98%;
   cursor: pointer;
   background: #fff;
   padding: 6px;
