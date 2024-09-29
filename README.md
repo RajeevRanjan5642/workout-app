@@ -48,13 +48,12 @@ Open new terminal and run the website
     cd frontend
     npm install
     npm start
-### Note :
-
-Please add following to the package.json file in the frontend folder iside the curly braces:
-
-    "proxy": "http://localhost:< your-server-port-no >"
     
 ## Usage
 - Create a new user account and log in.
 - Add your workout specifying sets, reps, and weights.
 - Monitor your progress.
+
+## Deployment
+
+🔗 https://workout-app-opal.vercel.app/
