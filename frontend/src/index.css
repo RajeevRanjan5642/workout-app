@@ -1,6 +1,6 @@
 /* google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
-/**/
+
 /* layout */
 :root {
   --primary: #ebe7f5;
@@ -32,21 +32,26 @@ header a {
   margin: 0 auto;
 }
 
-
 /* homepage */
 .home {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
+  display: flex;
+  /* grid-template-columns: 3fr 1fr; */
   gap: 100px;
+  flex-wrap: wrap;
+}
+
+.workouts{
+  flex: 3;
 }
 
 .workout-details {
   background: var(--primary);
   border-radius: 8px;
-  margin: 20px auto;
+  margin: 20px 0;
   padding: 25px;
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  width: 100%;
 }
 .workout-details h4 {
   margin: 0 0 10px 0;
@@ -69,28 +74,25 @@ header a {
   color: #6e8c82;
 }
 
-
 /*welcome page*/
 .welcome{
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   position: relative;
-  margin: auto; 
+  margin:18px auto; 
 }
-
 .welcome-img{
   width: 100%;
   border-radius: 50%;
-  opacity: 0.5;
+  opacity: 0.4;
 }
-
 .welcome-content{
   position:absolute;
-  top: 100px;
+  top: 120px;
   text-align: center;
   color: #2e2c39;
   padding: 5px 120px;
 }
-
 .welcome-btn{
   padding: 10px 35px;
   background-color: #6e8c82;
@@ -100,6 +102,9 @@ header a {
   font-family: "Poppins";
   font-size: 17px;
   cursor: pointer;
+}
+.welcome-title{
+  color: #6e8c82;
 }
 
 /* new workout form */
@@ -117,13 +122,14 @@ input {
   box-sizing: border-box;
   background-color: #fff;
 }
-
 .create,.edit{
+  flex: 1;
   height: 500px;
   padding: 25px;
   background-color:var(--primary);
   border-radius: 8px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  margin: 20px 0;
 }
 form button {
   margin-top: 15px;
@@ -234,5 +240,79 @@ form.signup, form.login {
   border-radius: 50%;
   color: #6e8c82;
 }
+
+ @media (max-width: 638px) {
+  .home {
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  .workouts, .create{
+      width: 90%; /* Full width on smaller screens */
+   }
+}
+
+ @media (max-width: 600px) {
+  .welcome{
+    margin-top: 60px;
+  }
+  .welcome-content {
+    padding: 0px 70px;
+    top: 80px;
+    font-size: 15px;
+  }
+
+  .welcome-btn {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 515px) {
+  .welcome{
+    margin-top: 60px;
+  }
+  .welcome-content {
+    padding: 0px 50px;
+    top: 60px;
+    font-size: 13.5px;
+  }
+
+  .welcome-btn {
+    padding: 10px 20px;
+    font-size: 13.5px;
+  }
+}
+@media (max-width: 465px) {
+  .welcome{
+    margin-top: 100px;
+  }
+  .welcome-content {
+    padding: 0px 40px;
+    top: 60px;
+    font-size: 12px;
+  }
+
+  .welcome-btn {
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 399px) {
+  .welcome{
+    margin-top: 120px;
+  }
+  .welcome-content {
+    padding: 0px 40px;
+    top: 40px;
+    font-size: 10px;
+  }
+
+  .welcome-btn {
+    padding: 7px 11px;
+    font-size: 8px;
+  }
+}
+
 
 
