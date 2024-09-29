@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const workoutRoutes = require("./routes/workoutRoutes");
 const userRoutes = require("./routes/userRoutes");
+const cors = require('cors');
 
 // configure dotenv
 dotenv.config({ path: "./config.env" });
