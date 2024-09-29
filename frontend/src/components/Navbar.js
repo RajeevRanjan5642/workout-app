@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useLogout } from "./hooks/useLogout";
 import { useAuthContext } from "./hooks/useAuthContext";
 
@@ -20,8 +20,8 @@ const Navbar = () => {
           )}
           {!user && (
             <div className="nav-link">
-              <Link to="/login" className="nav-link-login">Login</Link>
-              <Link to="/signup" className="nav-link-signup">Sign up</Link>
+              <NavLink to="/login" className="nav-link-login">Login</NavLink>
+              <NavLink to="/signup" className="nav-link-signup">Sign up</NavLink>
             </div>
           )}
         </nav>
