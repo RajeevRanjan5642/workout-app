@@ -11,6 +11,11 @@ dotenv.config({ path: "./config.env" });
 // express app
 const app = express();
 
+// cross origin resource sharing
+app.use(cors({
+    origin: '*'
+}));
+
 //middleware
 app.use(express.json());
 
