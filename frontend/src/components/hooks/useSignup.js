@@ -11,7 +11,7 @@ export const useSignup = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("/api/users/signup", {
+    const response = await fetch("https://workout-app-backend-1.onrender.com/api/users/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
