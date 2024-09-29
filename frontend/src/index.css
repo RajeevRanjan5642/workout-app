@@ -263,13 +263,16 @@ form.signup, form.login {
     margin-top: 60px;
   }
   .welcome-content {
-    padding: 0px 50px;
+    padding: 0px 40px;
     top: 60px;
-    font-size: 13.5px;
+    font-size: 13px;
+  }
+  .welcome-title{
+    font-size: 25px;
   }
   .welcome-btn {
     padding: 10px 20px;
-    font-size: 13.5px;
+    font-size: 13px;
   }
   header {
     font-size: 12px;
@@ -283,24 +286,12 @@ form.signup, form.login {
 }
 
 @media (max-width: 465px) {
-  .welcome{
-    margin-top: 100px;
-  }
-  .welcome-content {
-    padding: 0px 40px;
-    top: 60px;
-    font-size: 12px;
-  }
-  .welcome-btn {
-    padding: 10px 15px;
-    font-size: 12px;
-  }
   .workout-edit{
     width: 300px;
   }
 }
 
-@media (max-width: 399px) {
+@media (max-width: 418px) {
   .welcome{
     margin-top: 120px;
   }
@@ -308,6 +299,9 @@ form.signup, form.login {
     padding: 0px 35px;
     top: 25px;
     font-size: 10px;
+  }
+  .welcome-title{
+    font-size: 20px;
   }
   .welcome-btn {
     padding: 7px 11px;
@@ -366,7 +360,7 @@ form.signup, form.login {
     margin-right: 20px;
   }
  }
- 
+
  @media(max-width:300px){
   .workout-edit{
     width: 180px;
@@ -377,6 +371,22 @@ form.signup, form.login {
   }
  }
 
+ @media(max-width:287px){
+  .welcome{
+    margin-top: 150px;
+  }
+  .welcome-content {
+    padding: 0px 25px;
+    top: 25px;
+    font-size: 9.5px;
+  }
+  .welcome-title{
+    font-size: 15px;
+  }
+  .welcome-btn {
+    padding: 5px 10px;
+  }
+ }
 
 
 
