@@ -45,7 +45,7 @@ const WorkoutEditForm = ({
       workouts.sets = workout.sets;
     }
 
-    const response = await fetch(`https://workout-app-backend-1.onrender.com/api/workouts/${id}`, {
+    const response = await fetch(`https://workout-app-backend-1.onrender.com/api/workouts/${id}`,{
       method: "PATCH",
       body: JSON.stringify(workouts),
       headers: {
