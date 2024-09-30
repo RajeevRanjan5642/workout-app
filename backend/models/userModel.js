@@ -57,6 +57,8 @@ userSchema.statics.login = async function (email, password) {
     throw Error("Invalid login credentials");
   }
 
+  if(!user.isVerified) throw Error("Email is not verified");
+
   const match = await bcrypt.compare(password, user.password);
 
   if (!match) {

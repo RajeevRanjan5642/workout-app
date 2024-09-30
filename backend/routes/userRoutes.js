@@ -10,6 +10,6 @@ router.post("/login", userController.loginUser);
 router.post("/signup", userController.signupUser);
 
 //email verification route
-router.get('/verify-email/:id/:token',userController.verifyEmail);
+router.get('/verify-email/:token',userController.verifyEmail);
 
 module.exports = router;

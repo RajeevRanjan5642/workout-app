@@ -8,7 +8,7 @@ const createToken = (_id) => {
 };
 // login user
 exports.loginUser = async (req, res, next) => {
-  const { email, password } = req.body;
+  const { email, password} = req.body;
   try {
     const user = await User.login(email, password);
     const token = createToken(user._id);
@@ -25,10 +25,15 @@ exports.signupUser = async (req, res, next) => {
     const user = await User.signup(email, password, isVerified);
     const token = createToken(user._id);
 
-    /*email verification*/
-    sendEmail(email, token, user._id);
-
-    res.status(200).json({ email, token });
+      // Send email for verification
+      try {
+        await sendEmail(email, token);
+        res.status(200).json({ email, token, message: "A verification link has been sent to your email." });
+      } catch (error) {
+        // If email sending fails, delete the created user
+        await User.findByIdAndDelete(user._id);
+        return next(errorHandler(500, "Failed to send verification email. Please try again later."));
+      }
   } catch (error) {
     next(errorHandler(400, error.message));
   }
