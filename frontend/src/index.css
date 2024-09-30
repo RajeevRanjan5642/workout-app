@@ -287,3 +287,31 @@ form.signup, form.login {
     padding: 10px;
   }
 }
+
+@media (max-width: 458px) {
+  .welcome{
+    margin-top: 90px;
+  }
+  .welcome-content {
+    padding: 0px 40px;
+    top: 70px;
+    font-size: 13px;
+  }
+  .welcome-title{
+    font-size: 30px;
+    margin: 0;
+  }
+  .welcome-btn {
+    padding: 12px 24px;
+    font-size: 13px;
+  }
+  header {
+    font-size: 14px;
+  }
+  nav button{
+    padding: 6px 12px;
+  }
+  header .container{
+    padding: 10px;
+  }
+}
