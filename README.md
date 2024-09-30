@@ -60,4 +60,4 @@ Open new terminal and run the website
 
 The site is live at:
 
-🔗 https://workout-app-frontend-1.onrender.com/
+🔗 https://muscle-map.onrender.com/
