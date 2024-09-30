@@ -5,8 +5,8 @@ routine. This app simplifies the processof organizing and monitoring workout pro
 
 ## Features ⚙️
 - <b>User Authentication:</b> Secure user registration and login using JWT authentication.
-- <b>Exercise Logging:</b> Users can log different exercises with details such as name, load, reps and sets.
-- <b>Workout History</b>: View a comprehensive history of all logged workouts, with options to edit or delete specific workouts.
+- <b>CRUD Operation</b> : Allow users to create , read , update and delete thier workout plans.
+- <b>Responsive Design</b>: The app is fully responsive, ensuring a seamless experience across all devices.
 
 ## Tech Stack 🛠️
 - MongoDB
