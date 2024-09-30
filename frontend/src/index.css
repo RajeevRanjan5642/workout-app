@@ -102,6 +102,7 @@ header a {
 }
 .welcome-title{
   color: #6e8c82;
+  margin: 0;
 }
 
 /* new workout form */
@@ -143,7 +144,8 @@ form button {
   color: #6e8c82;
   text-align: center;
 }
-/* #4b5e6d */
+
+/*error*/
 div.error {
   padding: 10px;
   background: #fff;
@@ -220,7 +222,6 @@ form.signup, form.login {
 }
 .edit{
   width: 100%;
-  /* margin: auto; */
 }
 .workout-edit span{
   position: absolute;
@@ -254,139 +255,35 @@ form.signup, form.login {
     font-size: 15px;
   }
   .welcome-btn {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 15px;
   }
 }
+
 @media (max-width: 515px) {
   .welcome{
-    margin-top: 60px;
+    margin-top: 80px;
   }
   .welcome-content {
-    padding: 0px 40px;
-    top: 60px;
-    font-size: 13px;
+    padding: 0px 50px;
+    top: 80px;
+    font-size: 14px;
   }
   .welcome-title{
-    font-size: 25px;
+    font-size: 30px;
+    margin: 0;
   }
   .welcome-btn {
-    padding: 10px 20px;
-    font-size: 13px;
+    padding: 12px 24px;
+    font-size: 14px;
   }
   header {
-    font-size: 12px;
+    font-size: 15px;
   }
   nav button{
-    padding: 5px 10px;
+    padding: 7px 14px;
   }
   header .container{
-    padding: 5px;
+    padding: 10px;
   }
 }
-
-@media (max-width: 465px) {
-  .workout-edit{
-    width: 300px;
-  }
-}
-
-@media (max-width: 418px) {
-  .welcome{
-    margin-top: 120px;
-  }
-  .welcome-content {
-    padding: 0px 35px;
-    top: 25px;
-    font-size: 10px;
-  }
-  .welcome-title{
-    font-size: 20px;
-  }
-  .welcome-btn {
-    padding: 7px 11px;
-    font-size: 8px;
-  }
-  .workout-edit{
-    width: 250px;
-  }
-}
-
-@media(max-width:382px){
-
-  header {
-    font-size: 12px;
-  }
-  .nav-link-signup{
-    padding: 4px 8px;
-    font-size: 12px;
-  }
-  nav button{
-    padding: 4px 8px;
-  }
-  .home{
-    gap: 5px;
-  }
-  .pages{
-    padding: 8px;
-  }
-  header .container{
-    padding:4px;
-  }
-  .workout-details{
-    width: 90%;
-    font-size: 15px;
-  }
-  .workout-details span{
-    font-size: 18px;
-  }
-  .create{
-    width: 80%;
-    font-size: 15px;
-  }
-  .workout-edit{
-    width: 190px;
-    font-size: 15px;
-  }
-  .workout-edit span{
-    font-size: 18px;
-    top: 15px;
-    left: 100%;
-  }
-}
-
-@media(max-width: 351px){
-  header .container h1{
-    margin-right: 20px;
-  }
- }
-
- @media(max-width:300px){
-  .workout-edit{
-    width: 180px;
-    margin-left: 5px;
-  }
-  header .container h1{
-    margin-right: 0;
-  }
- }
-
- @media(max-width:287px){
-  .welcome{
-    margin-top: 150px;
-  }
-  .welcome-content {
-    padding: 0px 25px;
-    top: 25px;
-    font-size: 9.5px;
-  }
-  .welcome-title{
-    font-size: 15px;
-  }
-  .welcome-btn {
-    padding: 5px 10px;
-  }
- }
-
-
-
