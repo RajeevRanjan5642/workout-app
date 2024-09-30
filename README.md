@@ -24,21 +24,23 @@ Before running the project, ensure you have the following installed:
 ### 1. Clone the repository
 
     git clone https://github.com/RajeevRanjan5642/workout-app.git
-    cd workout-buddy
     
 ### 2. Install all dependencies
 
+    cd workout-app
     cd backend
     npm install
+    cd ../frontend
+    npm install
     
-### 3. Create .env file
+### 3. Configure evironment variables:
 Create .env file in the backend folder and add the following
 
     PORT=<your-port-no>
     MONGO_URI=<your-mongodb-connection-string>
     SECRET=<your-secret-string>
     
-### 3. Run the project locally
+### 3. Run the application locally
 First run the server on a terminal (make sure you are in backend folder)
     
     npm run dev
@@ -55,5 +57,7 @@ Open new terminal and run the website
 - Monitor your progress.
 
 ## Deployment
+
+The site is live at:
 
 🔗 https://workout-app-frontend-1.onrender.com/
