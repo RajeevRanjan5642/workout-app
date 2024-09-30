@@ -56,4 +56,4 @@ Open new terminal and run the website
 
 ## Deployment
 
-🔗 https://workout-app-opal.vercel.app/
+🔗 https://workout-app-frontend-1.onrender.com/
