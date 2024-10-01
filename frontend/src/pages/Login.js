@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,} from "react";
 import { useLogin } from "./../components/hooks/useLogin";
 import {Link} from "react-router-dom";
 
@@ -13,6 +13,7 @@ const Login = () => {
   };
 
   return (
+  <div>
     <form action="" className="login" onSubmit={handleSubmit}>
       <h3 className="form-heading">Login</h3>
       <label>Email:</label>
@@ -32,6 +33,7 @@ const Login = () => {
       {error && <div className="error">{error}</div>}
       <p className="form-foot">New to Workout Buddy? <Link to="/signup">Create One</Link></p>
     </form>
+    </div>
   );
 };
 

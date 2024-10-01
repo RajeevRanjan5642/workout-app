@@ -28,7 +28,7 @@ const Signup = () => {
       />
       <button disabled={isLoading}>Sign up</button>
       {error && <div className="error">{error}</div>}
-      {success && <div className="success">{success}</div>}
+      {success && <div className="success">{success} Please check your email to verify your account.</div>}
       <p className="form-foot">
         Already have an account? <Link to="/login">Login</Link>
       </p>

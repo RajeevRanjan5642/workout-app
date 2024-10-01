@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const workoutRoutes = require("./routes/workoutRoutes");
 const userRoutes = require("./routes/userRoutes");
-const cors = require('cors');
+const cors = require("cors");
 
 // configure dotenv
 dotenv.config({ path: "./config.env" });
@@ -13,9 +13,11 @@ dotenv.config({ path: "./config.env" });
 const app = express();
 
 // cross origin resource sharing
-app.use(cors({
-    origin: '*'
-}));
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 //middleware
 app.use(express.json());
@@ -26,9 +28,11 @@ app.use(express.json());
 app.use("/api/workouts", workoutRoutes);
 app.use("/api/users", userRoutes);
 
+
+//error handling middleware
 app.use((err, req, res, next) => {
-  const statusCode = err.statusCode||500;
-  const message = err.message||'Internal Server Error';
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
   res.status(statusCode).json({
     success: false,
     error: message,
