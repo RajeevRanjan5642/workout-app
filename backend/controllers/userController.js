@@ -55,7 +55,7 @@ exports.verifyEmail = async(req,res,next)=>{
     await user.save();
 
     //redirect to login page
-    res.status(200).send('Your email has been verified successfully. Please visit the website to login.')
+    res.status(200).json({message:'Email verified successfully'});
     }catch(err){
     next(errorHandler(400,'Invalid or expired verification token'));
   }

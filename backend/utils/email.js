@@ -6,7 +6,7 @@ dotenv.config();
 
 const sendEmail = async (email, token) => {
   const verificationURL =
-    process.env.SERVER_PATH + `/api/users/verify-email/${token}`;
+    process.env.REACT_PATH + `/verify-email/${token}`;
   try {
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,

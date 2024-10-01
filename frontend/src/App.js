@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Welcome from "./pages/Welcome";
 import PageNotFound from "./pages/PageNotFound"
 import { useAuthContext } from "./components/hooks/useAuthContext";
+import VerifyEmail from "./pages/VerifyEmail";
 
 const App = () => {
   const { user } = useAuthContext();
@@ -26,11 +27,15 @@ const App = () => {
             />
             <Route
               path="/login"
-              element={!user ? <Login /> : <Navigate to="/" />}
+              element={<Login />}
             />
             <Route
               path="/signup"
               element={<Signup />}
+            />
+            <Route
+              path="/verify-email/:token"
+              element={<VerifyEmail />}
             />
             <Route path="*"
             element={<PageNotFound/>}/>
