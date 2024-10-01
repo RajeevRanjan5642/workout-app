@@ -10,7 +10,7 @@ export const useLogin = () => {
   const login = async (email, password) => {
     setIsLoading(true);
     setError(null);
-    console.log(process.env.SERVER_PATH);
+
     const response = await fetch("http://localhost:4000/api/users/login", {
       method: "POST",
       headers: {
@@ -25,6 +25,7 @@ export const useLogin = () => {
       setError(json.error);
     }
     if (response.ok) {
+      
       // save the user to local storage
       localStorage.setItem("user", JSON.stringify(json));
 

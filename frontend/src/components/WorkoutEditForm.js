@@ -57,7 +57,7 @@ const WorkoutEditForm = ({
 
     if (!response.ok) {
       setError(json.error);
-      setEmptyFields(json.emptyFields);
+      setEmptyFields(json.emptyFields||[]);
     }
 
     if (response.ok) {
@@ -95,7 +95,7 @@ const WorkoutEditForm = ({
           type="text"
           onChange={(e) => setTitle(e.target.value)}
           value={title}
-          className={emptyFields.includes("title") ? "error" : ""}
+          className={emptyFields?.includes("title") ? "error" : ""}
           required
         />
 
@@ -104,7 +104,7 @@ const WorkoutEditForm = ({
           type="number"
           onChange={(e) => setLoad(e.target.value)}
           value={load}
-          className={emptyFields.includes("load") ? "error" : ""}
+          className={emptyFields?.includes("load") ? "error" : ""}
           required
         />
 
@@ -113,7 +113,7 @@ const WorkoutEditForm = ({
           type="number"
           onChange={(e) => setReps(e.target.value)}
           value={reps}
-          className={emptyFields.includes("reps") ? "error" : ""}
+          className={emptyFields?.includes("reps") ? "error" : ""}
           required
         />
         <label>Sets:</label>
@@ -121,7 +121,7 @@ const WorkoutEditForm = ({
           type="number"
           onChange={(e) => setSets(e.target.value)}
           value={sets}
-          className={emptyFields.includes("sets") ? "error" : ""}
+          className={emptyFields?.includes("sets") ? "error" : ""}
           required
         />
         <button className="edit-btn">Edit</button>

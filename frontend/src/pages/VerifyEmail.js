@@ -14,10 +14,8 @@ const VerifyEmail = () => {
           `http://localhost:4000/api/users/verify-email/${token}`
         );
         const json = await response.json();
-        console.log(json);
         if (response.ok) {
-            console.log("navigating to login")
-            navigate("/login");
+            navigate("/login?verified=true");
         }
         else {
           setError(json.error || "Verification failed. Please sign up again.");
