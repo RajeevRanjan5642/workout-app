@@ -14,15 +14,10 @@ const WorkoutForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!user) {
-      setError("You must be logged in");
-      return;
-    }
 
     const workout = { title, load, reps, sets };
 
-    const response = await fetch("https://workout-app-backend-1.onrender.com/api/workouts", {
+    const response = await fetch("http://localhost:4000/api/workouts", {
       method: "POST",
       body: JSON.stringify(workout),
       headers: {
@@ -34,7 +29,7 @@ const WorkoutForm = () => {
 
     if (!response.ok) {
       setError(json.error);
-      setEmptyFields(json.emptyFields);
+      setEmptyFields(json.emptyFields||[]);
     }
     if (response.ok) {
       setTitle("");
@@ -55,28 +50,28 @@ const WorkoutForm = () => {
         type="text"
         onChange={(e) => setTitle(e.target.value)}
         value={title}
-        className={emptyFields.includes("title") ? "error" : ""}
+        className={emptyFields?.includes("title") ? "error" : ""}
       />
       <label>Load (in kg):</label>
       <input
         type="number"
         onChange={(e) => setLoad(e.target.value)}
         value={load}
-        className={emptyFields.includes("load") ? "error" : ""}
+        className={emptyFields?.includes("load") ? "error" : ""}
       />
       <label>Reps:</label>
       <input
         type="number"
         onChange={(e) => setReps(e.target.value)}
         value={reps}
-        className={emptyFields.includes("reps") ? "error" : ""}
+        className={emptyFields?.includes("reps") ? "error" : ""}
       />
       <label>Sets:</label>
       <input
         type="number"
         onChange={(e) => setSets(e.target.value)}
         value={sets}
-        className={emptyFields.includes("sets") ? "error" : ""}
+        className={emptyFields?.includes("sets") ? "error" : ""}
       />
       <button>Add Workout</button>
       {error && <div className="error">{error}</div>}

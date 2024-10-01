@@ -234,6 +234,25 @@ form.signup, form.login {
   color: #6e8c82;
 }
 
+.success {
+  padding: 10px;
+  background: #d5f5b8;
+  border: 1px solid green;
+  color: green;
+  border-radius: 4px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.success button{
+  border: none;
+  color: black;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 /*responsive design*/
  @media (max-width: 638px) {
   .home {

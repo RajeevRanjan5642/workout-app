@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signup, error, isLoading } = useSignup();
+  const { signup, error, isLoading, success } = useSignup();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signup(email, password);
@@ -27,6 +28,7 @@ const Signup = () => {
       />
       <button disabled={isLoading}>Sign up</button>
       {error && <div className="error">{error}</div>}
+      {success && <div className="success">{success} Please check your email to verify your account.</div>}
       <p className="form-foot">
         Already have an account? <Link to="/login">Login</Link>
       </p>

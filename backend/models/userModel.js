@@ -15,10 +15,14 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 // static signup method
-userSchema.statics.signup = async function (email, password) {
+userSchema.statics.signup = async function (email, password, isVerified) {
   // validation
   if (!email || !password) {
     throw Error("Email and password is required !!");
@@ -38,7 +42,7 @@ userSchema.statics.signup = async function (email, password) {
 
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
-  const user = await this.create({ email, password: hash });
+  const user = await this.create({ email, password: hash, isVerified });
   return user;
 };
 
@@ -52,6 +56,8 @@ userSchema.statics.login = async function (email, password) {
   if (!user) {
     throw Error("Invalid login credentials");
   }
+
+  if(!user.isVerified) throw Error("Email is not verified");
 
   const match = await bcrypt.compare(password, user.password);
 
