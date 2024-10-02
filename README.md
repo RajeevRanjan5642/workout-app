@@ -60,4 +60,4 @@ Open new terminal and run the website
 
 The site is live at:
 
-🔗 https://muscle-map.onrender.com/
+🔗 https://muscle-map.vercel.app/
