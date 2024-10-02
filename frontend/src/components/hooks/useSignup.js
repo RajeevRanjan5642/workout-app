@@ -26,7 +26,6 @@ export const useSignup = () => {
     }
     if (response.ok) {
       // save the user to local storage
-      localStorage.setItem("user", JSON.stringify(json));
       setIsLoading(false);
       setSuccess(json.message);
     }
