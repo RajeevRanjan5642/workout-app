@@ -45,7 +45,7 @@ const WorkoutEditForm = ({
       workouts.sets = workout.sets;
     }
 
-    const response = await fetch(`http://localhost:4000/api/workouts/${id}`,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/workouts/${id}`,{
       method: "PATCH",
       body: JSON.stringify(workouts),
       headers: {

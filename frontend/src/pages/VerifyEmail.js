@@ -11,7 +11,7 @@ const VerifyEmail = () => {
     const verifyToken = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/users/verify-email/${token}`
+          `${process.env.REACT_APP_API_URL}/api/users/verify-email/${token}`
         );
         const json = await response.json();
         if (response.ok) {

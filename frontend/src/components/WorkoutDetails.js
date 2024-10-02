@@ -24,7 +24,7 @@ const WorkoutDetails = ({
 
   const handleClick = async () => {
     if (!user) return;
-    const response = await fetch("http://localhost:4000/api/workouts/" + workout._id, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/workouts/` + workout._id, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${user.token}`,

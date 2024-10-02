@@ -17,7 +17,7 @@ const WorkoutForm = () => {
 
     const workout = { title, load, reps, sets };
 
-    const response = await fetch("http://localhost:4000/api/workouts", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/workouts`, {
       method: "POST",
       body: JSON.stringify(workout),
       headers: {
