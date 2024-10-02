@@ -2,7 +2,18 @@
 const nodemailer = require("nodemailer");
 const errorHandler = require("./errorHandler");
 const dotenv = require("dotenv");
+const express = require("express");
+
 dotenv.config();
+
+
+const app = express();
+// cross origin resource sharing
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 const sendEmail = async (email, token) => {
   const verificationURL =
