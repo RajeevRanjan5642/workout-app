@@ -14,6 +14,7 @@ const VerifyEmail = () => {
           `${process.env.REACT_APP_API_URL}/api/users/verify-email/${token}`
         );
         const json = await response.json();
+        console.log(json);
         if (response.ok) {
             navigate("/login?verified=true");
         }
