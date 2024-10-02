@@ -2,13 +2,18 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const errorHandler = require("../utils/errorHandler");
 const validator = require("validator");
+const sendEmail = require("../utils/email");
+
+const createToken = (_id) => {
+  return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "1d" });
+};
 
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   email: {
     type: String,
-    required: true
+    required: true,
   },
   password: {
     type: String,
@@ -33,10 +38,31 @@ userSchema.statics.signup = async function (email, password, isVerified) {
     throw Error("Please use a strong password!");
   }
 
-  const exists = await this.findOne({ email });
+  const existingUser = await this.findOne({ email });
 
-  if (exists) {
-    throw Error("User already exists");
+  if (existingUser && !existingUser.isVerified) {
+    const token = createToken(existingUser._id);
+    try {
+      await sendEmail(email, token);
+      res
+        .status(200)
+        .json({
+          email,
+          token,
+          message: "A verification link has been sent to your email.",
+        });
+    } catch (error) {
+      // If email sending fails, delete the created user
+      await existingUser.findByIdAndDelete(existingUser._id);
+      return next(
+        errorHandler(
+          500,
+          "Failed to send verification email. Please try again later."
+        )
+      );
+    }
+  } else if (existingUser && existingUser.isVerified) {
+    throw Error("Email already in use.");
   }
 
   const salt = await bcrypt.genSalt(10);
@@ -56,7 +82,7 @@ userSchema.statics.login = async function (email, password) {
     throw Error("Invalid login credentials");
   }
 
-  if(!user.isVerified) throw Error("Email is not verified");
+  if (!user.isVerified) throw Error("Email is not verified");
 
   const match = await bcrypt.compare(password, user.password);
 

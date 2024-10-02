@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const sendEmail = require("../utils/email");
 
 const createToken = (_id) => {
-  return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
+  return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "1d" });
 };
 // login user
 exports.loginUser = async (req, res, next) => {
