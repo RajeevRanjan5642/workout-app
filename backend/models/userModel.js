@@ -2,13 +2,20 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const errorHandler = require("../utils/errorHandler");
 const validator = require("validator");
+const jwt = require("jsonwebtoken");
+const sendEmail = require("../utils/email");
+const User = require("./../models/userModel");
+
+const createToken = (_id) => {
+  return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "1d" });
+};
 
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   email: {
     type: String,
-    required: true
+    required: true,
   },
   password: {
     type: String,
@@ -33,10 +40,14 @@ userSchema.statics.signup = async function (email, password, isVerified) {
     throw Error("Please use a strong password!");
   }
 
-  const exists = await this.findOne({ email });
+  const existingUser = await this.findOne({ email });
 
-  if (exists) {
-    throw Error("User already exists");
+  if (existingUser && !existingUser.isVerified) {
+    const token = createToken(existingUser._id);
+      await sendEmail(email, token);
+      throw Error("User already exists but is not verified. Verification email resent.");
+  } else if (existingUser && existingUser.isVerified) {
+    throw Error("Email already in use.");
   }
 
   const salt = await bcrypt.genSalt(10);
@@ -56,7 +67,7 @@ userSchema.statics.login = async function (email, password) {
     throw Error("Invalid login credentials");
   }
 
-  if(!user.isVerified) throw Error("Email is not verified");
+  if (!user.isVerified) throw Error("Email is not verified");
 
   const match = await bcrypt.compare(password, user.password);
 
