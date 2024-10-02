@@ -36,7 +36,7 @@ userSchema.statics.signup = async function (email, password, isVerified) {
 
   const exists = await this.findOne({ email });
 
-  if (exists) {
+  if (exists.isVerified) {
     throw Error("User already exists");
   }
 
