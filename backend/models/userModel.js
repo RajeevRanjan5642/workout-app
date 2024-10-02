@@ -2,7 +2,9 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const errorHandler = require("../utils/errorHandler");
 const validator = require("validator");
+const jwt = require("jsonwebtoken");
 const sendEmail = require("../utils/email");
+const User = require("./../models/userModel");
 
 const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "1d" });
@@ -42,25 +44,8 @@ userSchema.statics.signup = async function (email, password, isVerified) {
 
   if (existingUser && !existingUser.isVerified) {
     const token = createToken(existingUser._id);
-    try {
       await sendEmail(email, token);
-      res
-        .status(200)
-        .json({
-          email,
-          token,
-          message: "A verification link has been sent to your email.",
-        });
-    } catch (error) {
-      // If email sending fails, delete the created user
-      await existingUser.findByIdAndDelete(existingUser._id);
-      return next(
-        errorHandler(
-          500,
-          "Failed to send verification email. Please try again later."
-        )
-      );
-    }
+      throw Error("User already exists but is not verified. Verification email resent.");
   } else if (existingUser && existingUser.isVerified) {
     throw Error("Email already in use.");
   }
