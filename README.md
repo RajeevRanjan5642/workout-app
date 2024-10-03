@@ -4,7 +4,7 @@ With an intuitive user interface, users can easily add, delete and specific work
 routine. This app simplifies the processof organizing and monitoring workout progress, helping users stay motivated and achieve their fitness goals.
 
 ## Features ⚙️
-- <b>User Authentication:</b> Secure user registration and login using JWT authentication.
+- <b>User Authentication:</b> Secure user registration and login using JWT authentication and email verification through nodemailer.
 - <b>CRUD Operation</b> : Allow users to create , read , update and delete thier workout plans.
 - <b>Responsive Design</b>: The app is fully responsive, ensuring a seamless experience across all devices.
 
