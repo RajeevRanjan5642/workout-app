@@ -10,9 +10,9 @@ routine. This app simplifies the processof organizing and monitoring workout pro
 
 ## Tech Stack 🛠️
 - MongoDB
-- Express.js
+- ExpressJS
 - React
-- Node.js
+- NodeJS
 - Mongoose
 
 ## How to run the project 🎮
@@ -34,11 +34,22 @@ Before running the project, ensure you have the following installed:
     npm install
     
 ### 3. Configure evironment variables:
-Create .env file in the backend folder and add the following
+ 1. Backend Folder:
+    create a .env file and add the following:
+    
+        PORT=<your-port-no>
+        MONGO_URI=<your-mongodb-connection-string>
+        SECRET=<your-secret-string>
+        EMAIL_USERNAME = <email-id>
+        EMAIL_PASSWORD = <password>
+        EMAIL_HOST = smtp.gmail.com
+        EMAIL_PORT = 587
+        FRONTEND_URL = http://localhost:3000
 
-    PORT=<your-port-no>
-    MONGO_URI=<your-mongodb-connection-string>
-    SECRET=<your-secret-string>
+ 2. Frontend Folder:
+    create a .env file and add the following:
+    
+        REACT_APP_API_URL = http://localhost:4000
     
 ### 3. Run the application locally
 First run the server on a terminal (make sure you are in backend folder)
@@ -48,7 +59,6 @@ First run the server on a terminal (make sure you are in backend folder)
 Open new terminal and run the website 
 
     cd frontend
-    npm install
     npm start
     
 ## Usage
