@@ -32,7 +32,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className="workouts">
-        {!workouts ?  (<img src={process.env.PUBLIC_URL + "/goals.jpg"} alt="" className="goals"/>) :
+        {(!workouts||workouts.length===0) ?  (<img src={process.env.PUBLIC_URL + "/exercise.jpg"} alt="" className="exercise"/>) :
           (workouts.map((workout) => (
             <WorkoutDetails
               key={workout._id}
