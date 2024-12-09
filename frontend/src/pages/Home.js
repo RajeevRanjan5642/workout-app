@@ -32,8 +32,8 @@ const Home = () => {
   return (
     <div className="home">
       <div className="workouts">
-        {workouts &&
-          workouts.map((workout) => (
+        {workouts.length===0 ?  (<img src={process.env.PUBLIC_URL + "/goals.jpg"} alt=""/>) :
+          (workouts.map((workout) => (
             <WorkoutDetails
               key={workout._id}
               workout={workout}
@@ -41,7 +41,7 @@ const Home = () => {
               setShowWhichEditForm={setShowWhichEditForm}
               showWhichEditForm={showWhichEditForm}
             />
-          ))}
+          )))}
       </div>
       <WorkoutForm />
     </div>
