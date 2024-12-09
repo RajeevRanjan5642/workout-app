@@ -14,8 +14,8 @@ const Welcome = () => {
 
         <p className="welcome-text">
           Keep a detailed record of your exercises and track your progress with
-          Workout Buddy, your ultimate exercise log. Whether you’re lifting
-          weights, running, or practicing yoga, our web app helps you stay
+          MuscleMap, your ultimate exercise log. Whether you’re lifting
+          weights, doing push-ups, or practicing yoga, our web app helps you stay
           organized and motivated.
         </p>
         <button className="welcome-btn" onClick={() => navigate("/login")}>
