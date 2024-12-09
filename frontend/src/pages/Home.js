@@ -7,7 +7,7 @@ import { useWorkoutsContext } from "../components/hooks/useWorkoutsContext";
 import { useAuthContext } from "./../components/hooks/useAuthContext";
 
 const Home = () => {
-  const { workouts, dispatch } = useWorkoutsContext();
+  const { workouts=[], dispatch } = useWorkoutsContext();
   const { user } = useAuthContext();
 
   const [showWhichEditForm, setShowWhichEditForm] = useState("");
