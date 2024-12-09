@@ -1,18 +1,18 @@
 ## Overview 🔎
-Workout Buddy is a full stack web application built using the MERN stack that enables users to track and manage their workouts efficiently.
-With an intuitive user interface, users can easily add, delete and specific workouts allowing them to maintain a personalized exercise 
-routine. This app simplifies the processof organizing and monitoring workout progress, helping users stay motivated and achieve their fitness goals.
+MuscleMap is a full stack web application built using the MERN stack that enables users to track and manage their workouts efficiently.
+With an intuitive user interface, users can easily add, delete and edit specific workouts allowing them to maintain a personalized exercise 
+routine. This app simplifies the process of organizing and monitoring workout progress, helping users stay motivated and achieve their fitness goals.
 
 ## Features ⚙️
-- <b>User Authentication:</b> Secure user registration and login using JWT authentication.
+- <b>User Authentication:</b> Secure user registration and login using JWT authentication and email verification through nodemailer.
 - <b>CRUD Operation</b> : Allow users to create , read , update and delete thier workout plans.
 - <b>Responsive Design</b>: The app is fully responsive, ensuring a seamless experience across all devices.
 
 ## Tech Stack 🛠️
 - MongoDB
-- Express.js
+- ExpressJS
 - React
-- Node.js
+- NodeJS
 - Mongoose
 
 ## How to run the project 🎮
@@ -34,11 +34,22 @@ Before running the project, ensure you have the following installed:
     npm install
     
 ### 3. Configure evironment variables:
-Create .env file in the backend folder and add the following
+ 1. Backend Folder:
+    create a .env file and add the following:
+    
+        PORT=<your-port-no>
+        MONGO_URI=<your-mongodb-connection-string>
+        SECRET=<your-secret-string>
+        EMAIL_USERNAME = <email-id>
+        EMAIL_PASSWORD = <password>
+        EMAIL_HOST = smtp.gmail.com
+        EMAIL_PORT = 587
+        FRONTEND_URL = http://localhost:3000
 
-    PORT=<your-port-no>
-    MONGO_URI=<your-mongodb-connection-string>
-    SECRET=<your-secret-string>
+ 2. Frontend Folder:
+    create a .env file and add the following:
+    
+        REACT_APP_API_URL = http://localhost:4000
     
 ### 3. Run the application locally
 First run the server on a terminal (make sure you are in backend folder)
@@ -48,7 +59,6 @@ First run the server on a terminal (make sure you are in backend folder)
 Open new terminal and run the website 
 
     cd frontend
-    npm install
     npm start
     
 ## Usage
