@@ -71,6 +71,10 @@ header a {
   color: #6e8c82;
 }
 
+.goals{
+  width: 75%;
+}
+
 /*welcome page*/
 .welcome{
   width: 100%;
