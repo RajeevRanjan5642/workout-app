@@ -7,7 +7,7 @@ import { useWorkoutsContext } from "../components/hooks/useWorkoutsContext";
 import { useAuthContext } from "./../components/hooks/useAuthContext";
 
 const Home = () => {
-  const { workouts=[], dispatch } = useWorkoutsContext();
+  const { workouts, dispatch } = useWorkoutsContext();
   const { user } = useAuthContext();
 
   const [showWhichEditForm, setShowWhichEditForm] = useState("");
@@ -32,7 +32,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className="workouts">
-        {workouts.length===0 ?  (<img src={process.env.PUBLIC_URL + "/goals.jpg"} alt=""/>) :
+        {!workouts ?  (<img src={process.env.PUBLIC_URL + "/goals.jpg"} alt=""/>) :
           (workouts.map((workout) => (
             <WorkoutDetails
               key={workout._id}
