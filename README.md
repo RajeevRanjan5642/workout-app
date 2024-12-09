@@ -11,7 +11,7 @@ routine. This app simplifies the process of organizing and monitoring workout pr
 - <b>Responsive Design</b>: The app is fully responsive, ensuring a seamless experience across all devices.
 
 ## Tech Stack 🛠️
-- MongoDB
+- MongoDB Atlas
 - ExpressJS
 - React
 - NodeJS
