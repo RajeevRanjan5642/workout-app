@@ -1,5 +1,5 @@
 ## Overview 🔎
-Workout Buddy is a full stack web application built using the MERN stack that enables users to track and manage their workouts efficiently.
+MuscleMap is a full stack web application built using the MERN stack that enables users to track and manage their workouts efficiently.
 With an intuitive user interface, users can easily add, delete and specific workouts allowing them to maintain a personalized exercise 
 routine. This app simplifies the processof organizing and monitoring workout progress, helping users stay motivated and achieve their fitness goals.
 
