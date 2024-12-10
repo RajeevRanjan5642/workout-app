@@ -54,9 +54,16 @@ const Login = () => {
 
         <button disabled={isLoading}>Login</button>
         {error && <div className="error">{error}</div>}
+        {/* <p className="forgotPassword">
+          <Link to="/forgotPassword">Forgot Password</Link>
+        </p>
         <p className="form-foot">
           New to MuscleMap? <Link to="/signup">Create an account</Link>
-        </p>
+        </p> */}
+        <div className="form-foot-login">
+          <Link to="/forgotPassword">Forgot Password ?</Link>
+          <Link to="/signup">Create an account ?</Link>
+        </div>
       </form>
     </div>
   );
