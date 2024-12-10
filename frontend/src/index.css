@@ -150,6 +150,29 @@ form button {
   text-align: center;
 }
 
+.reset-password-form, .forgot-password-form{
+  width: 375px;
+  margin: 150px auto;
+}
+
+.card {
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title{
+  color: #6e8c82;
+  /* text-align:center; */
+  margin-bottom: 25px;
+}
+
+a{
+  text-decoration: none;
+  color: #556a63;
+}
+
 /*error*/
 div.error {
   padding: 10px;
@@ -201,12 +224,22 @@ form.signup, form.login {
   padding: 25px;
   background: var(--primary);
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.form-foot{
+.form-foot-login{
+  /* text-align: center; */
+  margin-top: 20px;
+  color: #2e2c39;
+  display: flex;
+  justify-content:space-between;
+}
+
+.form-foot-signup{
   text-align: center;
   margin-top: 20px;
   color: #2e2c39;
 }
+
 .not-found{
   width: 500px;
   height: 450px;
@@ -223,7 +256,8 @@ form.signup, form.login {
 .workout-edit{
   width: 325px;
   position: relative;
-  margin: 0 auto; 
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 .edit{
   width: 100%;
