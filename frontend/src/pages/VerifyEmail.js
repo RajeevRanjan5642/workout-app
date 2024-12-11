@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const VerifyEmail = () => {
   const { token } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const verifyToken = async () => {
@@ -18,19 +19,18 @@ const VerifyEmail = () => {
             navigate("/login?verified=true");
         }
         else {
-          setError(json.error || "Verification failed. Please sign up again.");
+          toast.error(json.error || "Verification failed. Please sign up again.");
           navigate("/signup");
         }
       } catch (err) {
-        setError("An error occurred. Please try again later.");
+        toast.error("An error occurred. Please try again later.");
       } finally {
         setLoading(false);
       }
     };
     verifyToken();
   }, [token, navigate]);
-  if (loading) return <div>Verifying your email...</div>;
-  if (error) return <div className="error">{error}</div>;
+  if (loading) return <div><p>Verifying your email...</p><ToastContainer/></div>;
   return null;
 };
 

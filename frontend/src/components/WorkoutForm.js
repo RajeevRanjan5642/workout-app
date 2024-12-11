@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useWorkoutsContext } from "./hooks/useWorkoutsContext";
 import { useAuthContext } from "./hooks/useAuthContext";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const WorkoutForm = () => {
   const { dispatch } = useWorkoutsContext();
@@ -8,7 +10,6 @@ const WorkoutForm = () => {
   const [load, setLoad] = useState("");
   const [reps, setReps] = useState("");
   const [sets, setSets] = useState("");
-  const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
   const { user } = useAuthContext();
 
@@ -28,7 +29,7 @@ const WorkoutForm = () => {
     const json = await response.json();
 
     if (!response.ok) {
-      setError(json.error);
+      toast.error(json.error);
       setEmptyFields(json.emptyFields||[]);
     }
     if (response.ok) {
@@ -36,13 +37,13 @@ const WorkoutForm = () => {
       setLoad("");
       setReps("");
       setSets("");
-      setError(null);
       setEmptyFields([]);
       dispatch({ type: "CREATE_WORKOUT", payload: json });
     }
   };
 
   return (
+    <div>
     <form action="" className="create card" onSubmit={handleSubmit}>
       <h3 className="form-heading">Add a new workout</h3>
       <label>Exercise Title:</label>
@@ -74,8 +75,9 @@ const WorkoutForm = () => {
         className={emptyFields?.includes("sets") ? "error" : ""}
       />
       <button>Add Workout</button>
-      {error && <div className="error">{error}</div>}
     </form>
+    <ToastContainer/>
+    </div>
   );
 };
 

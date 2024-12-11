@@ -1,15 +1,13 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const useSignup = () => {
   
-  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
-  const [success, setSuccess] = useState(null);
 
   const signup = async (email, password) => {
     setIsLoading(true);
-    setError(null);
-    setSuccess(null);
 
     const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/signup`, {
       method: "POST",
@@ -21,15 +19,14 @@ export const useSignup = () => {
 
     const json = await response.json();
     if (!response.ok) {
-      setIsLoading(false);
-      setError(json.error);
+      toast.error(json.error);
     }
     if (response.ok) {
       // save the user to local storage
       setIsLoading(false);
-      setSuccess(json.message);
+      toast.success(json.message);
     }
   };
 
-  return { signup, isLoading, error,success };
+  return { signup, isLoading};
 };

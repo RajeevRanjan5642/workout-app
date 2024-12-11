@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const useLogin = () => {
   const { dispatch } = useAuthContext();
 
-  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
 
   const login = async (email, password) => {
     setIsLoading(true);
-    setError(null);
 
     const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/login`, {
       method: "POST",
@@ -21,8 +21,9 @@ export const useLogin = () => {
 
     const json = await response.json();
     if (!response.ok) {
-      setIsLoading(false);
-      setError(json.error);
+      // setIsLoading(false);
+      // setError(json.error);
+      toast.error(json.error);
     }
     if (response.ok) {
       
@@ -35,5 +36,5 @@ export const useLogin = () => {
     }
   };
 
-  return { login, isLoading, error };
+  return { login, isLoading};
 };

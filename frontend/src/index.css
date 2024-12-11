@@ -3,7 +3,7 @@
 
 /* layout */
 :root {
-  --error: #FF980E;
+  
 }
 body {
   background: #fff;
@@ -264,19 +264,6 @@ a{
   border-radius: 50%;
   font-size: 20px;
   cursor: pointer;
-}
-
-/*error*/
-div.error {
-  padding: 10px;
-  background: #fff;
-  border: 1px solid var(--error);
-  color: var(--error);
-  border-radius: 4px;
-  margin: 20px 0;
-}
-input.error {
-  border: 1px solid var(--error);
 }
 
 /*responsive design*/

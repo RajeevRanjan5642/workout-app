@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ResetPassword = () => {
   const { token } = useParams();
   const [password, setPassword] = useState("");
-//   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
@@ -22,7 +21,6 @@ const ResetPassword = () => {
     const json = await response.json();
     if (response.ok) {
       toast.success(json.message);
-    //   navigate("/login");
     } else {
       toast.error(json.error);
     }

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "./hooks/useAuthContext";
 import { useWorkoutsContext } from "./hooks/useWorkoutsContext";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const WorkoutEditForm = ({
   workout,
@@ -15,7 +17,6 @@ const WorkoutEditForm = ({
   const [load, setLoad] = useState(workout.load);
   const [reps, setReps] = useState(workout.reps);
   const [sets, setSets] = useState(workout.sets);
-  const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const WorkoutEditForm = ({
     e.preventDefault();
 
     if (!user) {
-      setError("You must be logged in");
+      toast.error("You must be logged in!")
       return;
     }
     const workouts = { title, load, reps, sets };
@@ -56,13 +57,12 @@ const WorkoutEditForm = ({
     const json = await response.json();
 
     if (!response.ok) {
-      setError(json.error);
+      toast.error(json.error);
       setEmptyFields(json.emptyFields||[]);
     }
 
     if (response.ok) {
       setShowEditForm(false);
-      setError(null);
       setTitle("");
       setLoad("");
       setReps("");
@@ -77,7 +77,6 @@ const WorkoutEditForm = ({
 
   const handleClick = ()=>{
     setShowEditForm(false);
-    setError(null);
     setTitle("");
     setLoad("");
     setReps("");
@@ -125,7 +124,6 @@ const WorkoutEditForm = ({
           required
         />
         <button className="edit-btn">Edit</button>
-        {error && <div className="error">{error}</div>}
       </form>
       <span
           className="material-symbols-outlined"
@@ -134,6 +132,7 @@ const WorkoutEditForm = ({
         >
           close
         </span>
+        <ToastContainer/>
     </div>
   );
 };

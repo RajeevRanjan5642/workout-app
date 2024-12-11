@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { useLogin } from "./../components/hooks/useLogin";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, error, isLoading } = useLogin();
+  const { login, isLoading } = useLogin();
   const [verifiedMessage, setVerifiedMessage] = useState("");
   const [showMessage, setShowMessage] = useState(true);
 
@@ -53,12 +55,13 @@ const Login = () => {
         />
 
         <button disabled={isLoading}>Login</button>
-        {error && <div className="error">{error}</div>}
+        {/* {error && <div className="error">{error}</div>} */}
         <div className="form-foot-login">
           <Link to="/forgotPassword">Forgot Password ?</Link>
           <Link to="/signup">Create an account ?</Link>
         </div>
       </form>
+      <ToastContainer/>
     </div>
   );
 };
