@@ -87,7 +87,7 @@ const WorkoutEditForm = ({
 
   return (
     <div className="workout-edit">
-      <form className="edit" onSubmit={handleSubmit}>
+      <form className="edit card" onSubmit={handleSubmit}>
         <h3 className="form-heading">Edit Workout</h3>
 
         <label>Exercise Title:</label>

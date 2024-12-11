@@ -12,7 +12,7 @@ const Signup = () => {
     await signup(email, password);
   };
   return (
-    <form action="" className="signup" onSubmit={handleSubmit}>
+    <form action="" className="signup card" onSubmit={handleSubmit}>
       <h3 className="form-heading">Sign up</h3>
       <label>Email:</label>
       <input

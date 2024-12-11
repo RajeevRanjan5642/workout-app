@@ -37,7 +37,7 @@ const Login = () => {
           <button onClick={() => setShowMessage(false)}>X</button>
         </div>
       )}
-      <form action="" className="login" onSubmit={handleSubmit}>
+      <form action="" className="login card" onSubmit={handleSubmit}>
         <h3 className="form-heading">Login</h3>
         <label>Email:</label>
         <input

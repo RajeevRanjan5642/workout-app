@@ -4,14 +4,9 @@ const Welcome = () => {
   const navigate = useNavigate();
   return (
     <div className="welcome">
-      <img
-        src={process.env.PUBLIC_URL + "/yog.jpeg"}
-        alt=""
-        className="welcome-img"
-      />
+      
       <div className="welcome-content">
-        <h1 className="welcome-title">Your Daily Workout Planner</h1>
-
+        <h1 className="welcome-title">Your Daily Workout<br></br>Planner</h1>
         <p className="welcome-text">
           Keep a detailed record of your exercises and track your progress with
           MuscleMap, your ultimate exercise log. Whether you’re lifting
@@ -22,6 +17,11 @@ const Welcome = () => {
           Get Started
         </button>
       </div>
+      <img
+        src={process.env.PUBLIC_URL + "/main.jpg"}
+        alt=""
+        className="welcome-img"
+      />
     </div>
   );
 };

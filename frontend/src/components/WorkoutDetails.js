@@ -43,7 +43,7 @@ const WorkoutDetails = ({
 
   return (
     <>
-      <div className="workout-details">
+      <div className="workout-details card">
         <h4>{workout.title}</h4>
         <p>
           <strong>Load (kg): </strong>

@@ -3,16 +3,15 @@
 
 /* layout */
 :root {
-  --primary: #ebe7f5;
   --error: #FF980E;
 }
 body {
-  background: #ffffff;
+  background: #fff;
   margin: 0;
   font-family: "Poppins";
 }
 header {
-  background: #6e8c82;
+  background: #ffc801;
 }
 header .container {
   max-width: 1400px;
@@ -23,13 +22,19 @@ header .container {
   justify-content: space-between;
 }
 header a {
-  color: var(--primary);
+  color: #fff;
   text-decoration: none;
 }
 .pages{
   max-width: 1400px;
   padding: 20px;
   margin: 0 auto;
+}
+.card {
+  padding: 25px;
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* homepage */
@@ -42,23 +47,20 @@ header a {
   flex: 3;
 }
 .workout-details {
-  background: var(--primary);
-  border-radius: 8px;
+  background: #fff;
   margin: 20px 0;
-  padding: 25px;
   position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
   width: 100%;
 }
 .workout-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: #6e8c82;
+  color: #ffc801;
 }
 .workout-details p {
   margin: 0;
   font-size: 0.9em;
-  color:#2e2c39;
+  color:#2a454e;
 }
 .workout-details span {
   position: absolute;
@@ -68,9 +70,8 @@ header a {
   background: #fff;
   padding: 6px;
   border-radius: 50%;
-  color: #6e8c82;
+  color: #ffc801;
 }
-
 .exercise{
   width: 100%;
   height: 80vh;
@@ -78,27 +79,20 @@ header a {
 
 /*welcome page*/
 .welcome{
-  width: 100%;
-  max-width: 600px;
-  position: relative;
-  margin:18px auto; 
+  display: flex;
+  justify-content: center;
 }
 .welcome-img{
-  width: 100%;
-  border-radius: 50%;
-  opacity: 0.4;
+  width: 50%;
+  height: 78vh;
 }
 .welcome-content{
-  position:absolute;
-  top: 120px;
-  text-align: center;
-  color: #2e2c39;
-  padding: 5px 120px;
+  margin-top: 40px;
 }
 .welcome-btn{
   padding: 10px 35px;
-  background-color: #6e8c82;
-  color: #fcfbf6;
+  background-color: #ffc801;
+  color: #ffffff;
   border-radius: 30px;
   border: none;
   font-family: "Poppins";
@@ -106,85 +100,65 @@ header a {
   cursor: pointer;
 }
 .welcome-title{
-  color: #6e8c82;
-  margin: 0;
+  color: #ffc801;
+  font-size: 90px;
+  line-height:1;
+  margin-bottom: 25px;
+}
+.welcome-text{
+  font-size: 15px;
+  padding-right: 150px;
+  margin-bottom: 20px;
+  color: #2a454e;
 }
 
 /* new workout form */
+
 label, input {
   display: block;
-  color: #2e2c39;
+  color: #2a454e;
 }
 input {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
   width: 100%;
-  border: 1px solid var(--primary);
+  border: 1px solid #2a454e;
   border-radius: 5px;
   box-sizing: border-box;
   background-color: #fff;
+  outline-color: #ffc801;
 }
 .create,.edit{
   flex: 1;
   height: 500px;
-  padding: 25px;
-  background-color:var(--primary);
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
   margin: 20px 0;
 }
 form button {
   margin-top: 15px;
-  background: #6e8c82;
+  background: #ffc801;
   border: 0;
-  color: #ffffff;
+  color: #fff;
   padding: 10px;
   font-family: "Poppins";
   border-radius: 5px;
   cursor: pointer;
   width: 100%;
+  font-size: 15px;
 }
 .form-heading{
-  color: #6e8c82;
+  color: #2a454e;
   text-align: center;
+  font-size: 24px;
 }
-
 .reset-password-form, .forgot-password-form{
   width: 375px;
   margin: 150px auto;
+  background: #ed776b
 }
-
-.card {
-  padding: 25px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .title{
-  color: #6e8c82;
-  /* text-align:center; */
+  color: #2a454e;
   margin-bottom: 25px;
-}
-
-a{
-  text-decoration: none;
-  color: #556a63;
-}
-
-/*error*/
-div.error {
-  padding: 10px;
-  background: #fff;
-  border: 1px solid var(--error);
-  color: var(--error);
-  border-radius: 4px;
-  margin: 20px 0;
-}
-
-input.error {
-  border: 1px solid var(--error);
 }
 
 /* navbar */
@@ -197,19 +171,19 @@ nav a {
   margin-left: 10px;
 }
 nav button {
-  background: var(--primary);
-  color: #6e8c82;
+  background: #fff;
+  color: #ffc801;
   padding: 6px 10px;
   border-radius: 5px;
-  border: 1px solid var(--primary);
+  border: 1px solid #fff;
   font-family: "Poppins";
   cursor: pointer;
   font-size: 1em;
   margin-left: 10px;
 }
 .nav-link-signup{
-  background: var(--primary);
-  color: #6e8c82;
+  background: #fff;
+  color: #ffc801;
   padding: 6px 10px;
   border-radius: 4px;
   font-family: "Poppins";
@@ -221,25 +195,24 @@ nav button {
 form.signup, form.login {
   max-width: 400px;
   margin: 40px auto;
-  padding: 25px;
-  background: var(--primary);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #ed776b;
 }
 .form-foot-login{
-  /* text-align: center; */
   margin-top: 20px;
-  color: #2e2c39;
   display: flex;
   justify-content:space-between;
 }
-
 .form-foot-signup{
   text-align: center;
   margin-top: 20px;
-  color: #2e2c39;
+  color: #ffc801;
+}
+a{
+  text-decoration: none;
+  color: #2a454e;
 }
 
+/*not found*/
 .not-found{
   width: 500px;
   height: 450px;
@@ -270,9 +243,10 @@ form.signup, form.login {
   background: #fff;
   padding: 6px;
   border-radius: 50%;
-  color: #6e8c82;
+  color: #ffc801;
 }
 
+/*success*/
 .success {
   padding: 10px;
   background: #d5f5b8;
@@ -292,8 +266,53 @@ form.signup, form.login {
   cursor: pointer;
 }
 
+/*error*/
+div.error {
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
+}
+
 /*responsive design*/
- @media (max-width: 638px) {
+
+@media(max-width: 1200px){
+  .welcome-content{
+    margin-top: 40px;
+  }
+  .welcome-btn{
+    font-size: 15px;
+  }
+  .welcome-title{
+    font-size: 60px;
+  }
+  .welcome-text{
+    font-size: 14px;
+    padding-right: 120px;
+  }
+  .create label, input {
+    display: block;
+    color: #2a454e;
+    font-size: 15px;
+  }
+  .create input {
+    margin-bottom: 15px;
+  }
+  .create button {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .create .form-heading{
+    font-size: 20px;
+  }
+}
+
+ @media (max-width: 650px) {
   .home {
       flex-direction: column;
       gap: 20px;
@@ -303,38 +322,20 @@ form.signup, form.login {
    }
 }
 
- @media (max-width: 600px) {
-  .welcome{
-    margin-top: 60px;
+@media(max-width: 700px){
+  .welcome-img{
+    display: none;
   }
-  .welcome-content {
-    padding: 0px 70px;
-    top: 80px;
-    font-size: 15px;
+  .welcome-title{
+    font-size: 80px;
   }
-  .welcome-btn {
-    padding: 12px 24px;
+  .welcome-text{
     font-size: 15px;
+    padding-right: 10px;
   }
 }
 
 @media (max-width: 515px) {
-  .welcome{
-    margin-top: 80px;
-  }
-  .welcome-content {
-    padding: 0px 50px;
-    top: 80px;
-    font-size: 14px;
-  }
-  .welcome-title{
-    font-size: 30px;
-    margin: 0;
-  }
-  .welcome-btn {
-    padding: 12px 24px;
-    font-size: 14px;
-  }
   header {
     font-size: 15px;
   }
@@ -346,22 +347,13 @@ form.signup, form.login {
   }
 }
 
-@media (max-width: 458px) {
-  .welcome{
-    margin-top: 90px;
-  }
-  .welcome-content {
-    padding: 0px 40px;
-    top: 65px;
-    font-size: 12px;
-  }
+@media (max-width: 470px) {
   .welcome-title{
-    font-size: 25px;
-    margin: 0;
+    font-size: 60px;
   }
-  .welcome-btn {
-    padding: 12px 24px;
-    font-size: 12px;
+  .welcome-text{
+    font-size: 15px;
+    padding-right: 10px;
   }
   header {
     font-size: 14px;
