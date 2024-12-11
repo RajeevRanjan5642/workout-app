@@ -74,7 +74,7 @@ const WorkoutForm = () => {
         value={sets}
         className={emptyFields?.includes("sets") ? "error" : ""}
       />
-      <button>Add Workout</button>
+      <button type="submit">Add Workout</button>
     </form>
     <ToastContainer/>
     </div>

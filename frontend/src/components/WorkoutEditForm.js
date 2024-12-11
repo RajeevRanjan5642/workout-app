@@ -123,7 +123,7 @@ const WorkoutEditForm = ({
           className={emptyFields?.includes("sets") ? "error" : ""}
           required
         />
-        <button className="edit-btn">Edit</button>
+        <button className="edit-btn" type="submit">Edit</button>
       </form>
       <span
           className="material-symbols-outlined"

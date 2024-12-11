@@ -29,7 +29,7 @@ const Signup = () => {
         onChange={(e) => setPassword(e.target.value)}
         value={password}
       />
-      <button disabled={isLoading}>Sign up</button>
+      <button disabled={isLoading} type="submit">Sign up</button>
       <p className="form-foot-signup">
         Already have an account ? <Link to="/login">Login</Link>
       </p>

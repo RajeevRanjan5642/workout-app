@@ -42,7 +42,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <button disabled={isLoading}>Login</button>
+        <button disabled={isLoading} type="submit">Login</button>
         <div className="form-foot-login">
           <Link to="/forgotPassword">Forgot Password ?</Link>
           <Link to="/signup">Create an account ?</Link>
