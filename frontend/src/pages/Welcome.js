@@ -18,7 +18,7 @@ const Welcome = () => {
         </button>
       </div>
       <img
-        src={process.env.PUBLIC_URL + "/main.jpg"}
+        src={process.env.PUBLIC_URL + "/main.webp"}
         alt=""
         className="welcome-img"
       />
