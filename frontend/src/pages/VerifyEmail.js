@@ -16,10 +16,11 @@ const VerifyEmail = () => {
         );
         const json = await response.json();
         if (response.ok) {
-            navigate("/login?verified=true");
-        }
-        else {
-          toast.error(json.error || "Verification failed. Please sign up again.");
+          navigate("/login?verified=true");
+        } else {
+          toast.error(
+            json.error || "Verification failed. Please sign up again."
+          );
           navigate("/signup");
         }
       } catch (err) {
@@ -30,8 +31,12 @@ const VerifyEmail = () => {
     };
     verifyToken();
   }, [token, navigate]);
-  if (loading) return <div><p>Verifying your email...</p><ToastContainer/></div>;
-  return null;
+  return (
+    <>
+      {loading ? <div>Verifying your email...</div> : null}
+      <ToastContainer />
+    </>
+  );
 };
 
 export default VerifyEmail;
