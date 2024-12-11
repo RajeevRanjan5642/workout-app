@@ -9,18 +9,12 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, isLoading } = useLogin();
-  // const [verifiedMessage, setVerifiedMessage] = useState("");
-  // const [showMessage, setShowMessage] = useState(true);
-
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     if (queryParams.get("verified") === "true") {
-      // setVerifiedMessage(
-      //   "Your email has been verified successfully! Please log in."
-      // );
       toast.success("Your email has been verified successfully! Please log in.")
       // Clear the query parameter
       navigate('/login', { replace: true });
@@ -34,12 +28,6 @@ const Login = () => {
 
   return (
     <div>
-      {/* {verifiedMessage && showMessage && (
-        <div className="success">
-          <p>{verifiedMessage}</p>
-          <button onClick={() => setShowMessage(false)}>X</button>
-        </div>
-      )} */}
       <form action="" className="login card" onSubmit={handleSubmit}>
         <h3 className="form-heading">Login</h3>
         <label>Email:</label>
@@ -54,9 +42,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-
         <button disabled={isLoading}>Login</button>
-        {/* {error && <div className="error">{error}</div>} */}
         <div className="form-foot-login">
           <Link to="/forgotPassword">Forgot Password ?</Link>
           <Link to="/signup">Create an account ?</Link>

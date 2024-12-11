@@ -2,9 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
 /* layout */
-:root {
-  
-}
 body {
   background: #fff;
   margin: 0;
@@ -113,7 +110,6 @@ header a {
 }
 
 /* new workout form */
-
 label, input {
   display: block;
   color: #2a454e;
@@ -247,7 +243,6 @@ a{
 }
 
 /*responsive design*/
-
 @media(max-width: 1200px){
   .welcome-content{
     margin-top: 40px;

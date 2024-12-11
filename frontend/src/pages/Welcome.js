@@ -19,7 +19,7 @@ const Welcome = () => {
       </div>
       <img
         src={process.env.PUBLIC_URL + "/main.webp"}
-        alt=""
+        alt="Workout_Planner"
         className="welcome-img"
       />
     </div>
