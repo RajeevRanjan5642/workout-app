@@ -84,7 +84,7 @@ header a {
   height: 78vh;
 }
 .welcome-content{
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .welcome-btn{
   padding: 10px 35px;
@@ -244,9 +244,6 @@ a{
 
 /*responsive design*/
 @media(max-width: 1200px){
-  .welcome-content{
-    margin-top: 40px;
-  }
   .welcome-btn{
     font-size: 15px;
   }
