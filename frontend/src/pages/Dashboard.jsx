@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
 //components
-import WorkoutDetails from "./../components/WorkoutDetails";
-import WorkoutForm from "./../components/WorkoutForm";
+import WorkoutDetails from "../components/WorkoutDetails";
+import WorkoutForm from "../components/WorkoutForm";
 import { useWorkoutsContext } from "../components/hooks/useWorkoutsContext";
-import { useAuthContext } from "./../components/hooks/useAuthContext";
+import { useAuthContext } from "../components/hooks/useAuthContext";
 
 const Home = () => {
   const { workouts, dispatch } = useWorkoutsContext();
@@ -30,7 +30,7 @@ const Home = () => {
   }, [dispatch, user]);
 
   return (
-    <div className="home">
+    <div className="dashboard">
       <div className="workouts">
         {(!workouts||workouts.length===0) ?  (<img src={process.env.PUBLIC_URL + "/exercise.webp"} alt="Exercise" className="exercise"/>) :
           (workouts.map((workout) => (

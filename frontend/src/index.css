@@ -34,8 +34,8 @@ header a {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* homepage */
-.home {
+/* dashboardpage */
+.dashboard {
   display: flex;
   gap: 100px;
   flex-wrap: wrap;
@@ -74,19 +74,19 @@ header a {
   height: 80vh;
 }
 
-/*welcome page*/
-.welcome{
+/*home page*/
+.home{
   display: flex;
   justify-content: center;
 }
-.welcome-img{
+.home-img{
   width: 50%;
   height: 78vh;
 }
-.welcome-content{
+.home .content{
   margin-top: 30px;
 }
-.welcome-btn{
+.home .btn{
   padding: 10px 35px;
   background-color: #ffc801;
   color: #ffffff;
@@ -96,13 +96,13 @@ header a {
   font-size: 17px;
   cursor: pointer;
 }
-.welcome-title{
+.home .title{
   color: #ffc801;
   font-size: 90px;
   line-height:1;
   margin-bottom: 25px;
 }
-.welcome-text{
+.home .text{
   font-size: 15px;
   padding-right: 150px;
   margin-bottom: 20px;
@@ -244,13 +244,13 @@ a{
 
 /*responsive design*/
 @media(max-width: 1200px){
-  .welcome-btn{
+  .home .btn{
     font-size: 15px;
   }
-  .welcome-title{
+  .home .title{
     font-size: 60px;
   }
-  .welcome-text{
+  .home .text{
     font-size: 14px;
     padding-right: 120px;
   }
@@ -272,7 +272,7 @@ a{
 }
 
  @media (max-width: 650px) {
-  .home {
+  .dashboard {
       flex-direction: column;
       gap: 20px;
   }
@@ -282,13 +282,13 @@ a{
 }
 
 @media(max-width: 700px){
-  .welcome-img{
+  .home-img{
     display: none;
   }
-  .welcome-title{
+  .home .title{
     font-size: 80px;
   }
-  .welcome-text{
+  .home .text{
     font-size: 15px;
     padding-right: 10px;
   }
@@ -307,10 +307,10 @@ a{
 }
 
 @media (max-width: 470px) {
-  .welcome-title{
+  .home .title{
     font-size: 60px;
   }
-  .welcome-text{
+  .home .text{
     font-size: 15px;
     padding-right: 10px;
   }

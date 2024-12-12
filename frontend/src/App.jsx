@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
-import Welcome from "./pages/Welcome";
+import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
 import { useAuthContext } from "./components/hooks/useAuthContext";
 import VerifyEmail from "./pages/VerifyEmail";
@@ -18,10 +18,10 @@ const App = () => {
         <Navbar />
         <div className="pages">
           <Routes>
-            <Route path="/" element={user ? <Home /> : <Welcome />} />
+            <Route path="/" element={user ? <Dashboard /> : <Home />} />
             <Route
               path="/login"
-              element={user && user.isVerified ? <Home /> : <Login />}
+              element={user && user.isVerified ? <Dashboard /> : <Login />}
             />
             <Route path="/signup" element={<Signup />} />
             <Route path="/verify-email/:token" element={<VerifyEmail />} />
