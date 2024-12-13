@@ -73,3 +73,6 @@ Open new terminal and run the website
 The site is live at:
 
 🔗 https://muscle-map.vercel.app/
+
+## Project Demo
+https://github.com/user-attachments/assets/2948f2ea-681d-4daa-8708-6c569a5a71f7
