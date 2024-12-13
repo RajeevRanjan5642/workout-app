@@ -1,4 +1,4 @@
-![banner](https://github.com/RajeevRanjan5642/workout-app/blob/main/banner.jpg)
+![banner](https://github.com/user-attachments/assets/53fd1f8a-25a2-428c-ab9f-66874a4c9057)
 
 ## Overview 🔎
 MuscleMap is a full stack web application built using the MERN stack that enables users to track and manage their workouts efficiently.
