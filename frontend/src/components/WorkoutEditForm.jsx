@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "./hooks/useAuthContext";
 import { useWorkoutsContext } from "./hooks/useWorkoutsContext";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast} from "react-toastify";
 
 const WorkoutEditForm = ({
   workout,
@@ -132,7 +131,6 @@ const WorkoutEditForm = ({
         >
           close
         </span>
-        <ToastContainer/>
     </div>
   );
 };

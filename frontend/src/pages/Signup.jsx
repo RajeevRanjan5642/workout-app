@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useSignup } from "../components/hooks/useSignup";
 import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -34,7 +34,6 @@ const Signup = () => {
         Already have an account ? <Link to="/login">Login</Link>
       </p>
     </form>
-    <ToastContainer/>
     </div>
   );
 };

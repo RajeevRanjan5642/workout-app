@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { useLogin } from "../components/hooks/useLogin";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
-import { toast,ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast} from "react-toastify";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -48,7 +47,6 @@ const Login = () => {
           <Link to="/signup">Create an account ?</Link>
         </div>
       </form>
-      <ToastContainer/>
     </div>
   );
 };

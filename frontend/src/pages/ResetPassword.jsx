@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const ResetPassword = () => {
   const { token } = useParams();
@@ -42,7 +41,6 @@ const ResetPassword = () => {
       <p className="form-foot-signup">
          <Link to="/login">Go to Login Page</Link>
         </p>
-      <ToastContainer/>
     </div>
   );
 };

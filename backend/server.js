@@ -28,7 +28,6 @@ app.use(express.json());
 app.use("/api/workouts", workoutRoutes);
 app.use("/api/users", userRoutes);
 
-
 //error handling middleware
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
@@ -40,11 +39,14 @@ app.use((err, req, res, next) => {
 });
 
 //connect to db
+
+const port = process.env.PORT || 4000;
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     // listen for requests
-    app.listen(process.env.PORT, () => {
+    app.listen(port, () => {
       // console.log(`server is listening at port ${process.env.PORT}`);
     });
   })

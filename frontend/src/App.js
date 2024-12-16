@@ -9,11 +9,14 @@ import { useAuthContext } from "./components/hooks/useAuthContext";
 import VerifyEmail from "./pages/VerifyEmail";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const { user } = useAuthContext();
   return (
     <div className="App">
+      <ToastContainer/>
       <Router>
         <Navbar />
         <div className="pages">

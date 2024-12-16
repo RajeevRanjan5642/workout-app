@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useWorkoutsContext } from "./hooks/useWorkoutsContext";
 import { useAuthContext } from "./hooks/useAuthContext";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const WorkoutForm = () => {
   const { dispatch } = useWorkoutsContext();
@@ -76,7 +75,6 @@ const WorkoutForm = () => {
       />
       <button type="submit">Add Workout</button>
     </form>
-    <ToastContainer/>
     </div>
   );
 };
