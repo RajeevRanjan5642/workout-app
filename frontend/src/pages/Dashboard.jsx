@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 //components
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
-import { useWorkoutsContext } from "../components/hooks/useWorkoutsContext";
-import { useAuthContext } from "../components/hooks/useAuthContext";
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Home = () => {
   const { workouts, dispatch } = useWorkoutsContext();

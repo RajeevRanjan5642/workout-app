@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useAuthContext } from "./hooks/useAuthContext";
-import { useWorkoutsContext } from "./hooks/useWorkoutsContext";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { toast} from "react-toastify";
 
 const WorkoutEditForm = ({

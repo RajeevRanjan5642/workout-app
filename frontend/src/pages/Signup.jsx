@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSignup } from "../components/hooks/useSignup";
+import { useSignup } from "../hooks/useSignup";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 

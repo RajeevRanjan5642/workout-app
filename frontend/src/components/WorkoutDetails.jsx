@@ -1,6 +1,6 @@
-import { useWorkoutsContext } from "./hooks/useWorkoutsContext";
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import { useAuthContext } from "./hooks/useAuthContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 import { useEffect, useState } from "react";
 import WorkoutEditForm from "./WorkoutEditForm";
 

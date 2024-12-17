@@ -5,7 +5,7 @@ import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
-import { useAuthContext } from "./components/hooks/useAuthContext";
+import { useAuthContext } from "./hooks/useAuthContext";
 import VerifyEmail from "./pages/VerifyEmail";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
