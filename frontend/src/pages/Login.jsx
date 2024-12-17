@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
-import { useLogin } from "../hooks/useLogin";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast} from "react-toastify";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { login, isLoading } = useLogin();
   const location = useLocation();
   const navigate = useNavigate();
+  const backend_url = process.env.REACT_APP_API_URL;
+
+  const [formData,setFormData] = useState({
+    email:"",
+    password:"",
+  })
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
@@ -20,28 +22,47 @@ const Login = () => {
     }
   }, [location,navigate]);
 
-  const handleSubmit = async (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    await login(email, password);
+    const response = await fetch(`${backend_url}/api/users/login`,{
+      method:'POST',
+      headers:{
+          'Content-Type':'application/json'
+      },
+      body:JSON.stringify(formData),
+    });
+    const json = await response.json();
+    if(response.ok){
+      localStorage.setItem("user", JSON.stringify(json));
+      toast.success("You're logged in.");
+      window.location.replace("/");
+    }
+    else{
+      toast.error(json.error);
+    }
+  };
+
+  const changeHandler = (e)=>{
+    setFormData((formData)=>({...formData,[e.target.name]:e.target.value}));
   };
 
   return (
     <div>
-      <form action="" className="login card" onSubmit={handleSubmit}>
+      <form action="" className="login card" onSubmit={submitHandler}>
         <h3 className="form-heading">Login</h3>
         <label>Email:</label>
         <input
           type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
+          onChange={changeHandler}
+          value={formData.email}
         />
         <label>Password:</label>
         <input
           type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
+          onChange={(changeHandler)}
+          value={formData.password}
         />
-        <button disabled={isLoading} type="submit">Login</button>
+        <button type="submit">Login</button>
         <div className="form-foot-login">
           <Link to="/forgotPassword">Forgot Password ?</Link>
           <Link to="/signup">Create an account ?</Link>

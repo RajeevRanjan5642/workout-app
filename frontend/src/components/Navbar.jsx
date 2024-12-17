@@ -1,10 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
-import { useLogout } from "../hooks/useLogout";
-import { useAuthContext } from "../hooks/useAuthContext";
+import {toast} from 'react-toastify';
 
 const Navbar = () => {
-  const { user } = useAuthContext();
-  const { logout } = useLogout();
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const logout = () =>{
+    localStorage.removeItem("user");
+    toast.success("Logged out successfully.");
+    window.location.replace("/login");
+  }
+
   return (
     <header>
       <div className="container">
@@ -28,6 +33,7 @@ const Navbar = () => {
       </div>
     </header>
   );
+  
 };
 
 export default Navbar;

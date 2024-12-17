@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { useAuthContext } from "../hooks/useAuthContext";
-import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { toast} from "react-toastify";
 
 const WorkoutEditForm = ({
@@ -9,14 +7,12 @@ const WorkoutEditForm = ({
   setShowEditForm,
   showWhichEditForm,
 }) => {
-  const { dispatch } = useWorkoutsContext();
-  const { user } = useAuthContext();
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const [title, setTitle] = useState(workout.title);
   const [load, setLoad] = useState(workout.load);
   const [reps, setReps] = useState(workout.reps);
   const [sets, setSets] = useState(workout.sets);
-  const [emptyFields, setEmptyFields] = useState([]);
 
   useEffect(() => {
     if (showWhichEditForm !== id) {
@@ -24,13 +20,9 @@ const WorkoutEditForm = ({
     }
   });
 
-  const handleSubmit = async (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
 
-    if (!user) {
-      toast.error("You must be logged in!")
-      return;
-    }
     const workouts = { title, load, reps, sets };
     if (title === "") {
       workouts.title = workout.title;
@@ -57,7 +49,6 @@ const WorkoutEditForm = ({
 
     if (!response.ok) {
       toast.error(json.error);
-      setEmptyFields(json.emptyFields||[]);
     }
 
     if (response.ok) {
@@ -66,26 +57,20 @@ const WorkoutEditForm = ({
       setLoad("");
       setReps("");
       setSets("");
-      setEmptyFields([]);
-      dispatch({
-        type: "EDIT_WORKOUT",
-        payload: json,
-      });
     }
   };
 
-  const handleClick = ()=>{
+  const clickHandler = ()=>{
     setShowEditForm(false);
     setTitle("");
     setLoad("");
     setReps("");
     setSets("");
-    setEmptyFields([]);
   }
 
   return (
     <div className="workout-edit">
-      <form className="edit card" onSubmit={handleSubmit}>
+      <form className="edit card" onSubmit={submitHandler}>
         <h3 className="form-heading">Edit Workout</h3>
 
         <label>Exercise Title:</label>
@@ -93,7 +78,6 @@ const WorkoutEditForm = ({
           type="text"
           onChange={(e) => setTitle(e.target.value)}
           value={title}
-          className={emptyFields?.includes("title") ? "error" : ""}
           required
         />
 
@@ -102,7 +86,6 @@ const WorkoutEditForm = ({
           type="number"
           onChange={(e) => setLoad(e.target.value)}
           value={load}
-          className={emptyFields?.includes("load") ? "error" : ""}
           required
         />
 
@@ -111,7 +94,6 @@ const WorkoutEditForm = ({
           type="number"
           onChange={(e) => setReps(e.target.value)}
           value={reps}
-          className={emptyFields?.includes("reps") ? "error" : ""}
           required
         />
         <label>Sets:</label>
@@ -119,7 +101,6 @@ const WorkoutEditForm = ({
           type="number"
           onChange={(e) => setSets(e.target.value)}
           value={sets}
-          className={emptyFields?.includes("sets") ? "error" : ""}
           required
         />
         <button className="edit-btn" type="submit">Edit</button>
@@ -127,7 +108,7 @@ const WorkoutEditForm = ({
       <span
           className="material-symbols-outlined"
           style={{ marginRight: "45px" }}
-          onClick={handleClick}
+          onClick={clickHandler}
         >
           close
         </span>

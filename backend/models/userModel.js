@@ -45,7 +45,7 @@ userSchema.statics.signup = async function (email, password, isVerified) {
   if (existingUser && !existingUser.isVerified) {
     const token = createToken(existingUser._id);
       await sendEmail(email, token);
-      throw Error("User already exists but is not verified. Verification email resent.");
+      throw Error("Your email is not verified. A verification link has been sent to your email.");
   } else if (existingUser && existingUser.isVerified) {
     throw Error("Email already in use.");
   }

@@ -5,7 +5,6 @@ import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
-import { useAuthContext } from "./hooks/useAuthContext";
 import VerifyEmail from "./pages/VerifyEmail";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
@@ -13,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 const App = () => {
-  const { user } = useAuthContext();
+  const user = JSON.parse(localStorage.getItem("user"));
   return (
     <div className="App">
       <ToastContainer/>
@@ -21,10 +20,10 @@ const App = () => {
         <Navbar />
         <div className="pages">
           <Routes>
-            <Route path="/" element={user ? <Dashboard /> : <Home />} />
+            <Route path="/" element={user&&user.isVerified ? <Dashboard /> : <Home />} />
             <Route
               path="/login"
-              element={user && user.isVerified ? <Dashboard /> : <Login />}
+              element={<Login />}
             />
             <Route path="/signup" element={<Signup />} />
             <Route path="/verify-email/:token" element={<VerifyEmail />} />
