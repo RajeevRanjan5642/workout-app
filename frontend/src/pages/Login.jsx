@@ -17,10 +17,9 @@ const Login = () => {
     const queryParams = new URLSearchParams(location.search);
     if (queryParams.get("verified") === "true") {
       toast.success("Your email has been verified successfully! Please log in.")
-      // Clear the query parameter
       navigate('/login', { replace: true });
     }
-  }, [location,navigate]);
+  }, [location.search,navigate]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -43,7 +42,7 @@ const Login = () => {
   };
 
   const changeHandler = (e)=>{
-    setFormData((formData)=>({...formData,[e.target.name]:e.target.value}));
+    setFormData({...formData,[e.target.name]:e.target.value});
   };
 
   return (
@@ -53,13 +52,15 @@ const Login = () => {
         <label>Email:</label>
         <input
           type="email"
+          name="email"
           onChange={changeHandler}
           value={formData.email}
         />
         <label>Password:</label>
         <input
           type="password"
-          onChange={(changeHandler)}
+          name="password"
+          onChange={changeHandler}
           value={formData.password}
         />
         <button type="submit">Login</button>

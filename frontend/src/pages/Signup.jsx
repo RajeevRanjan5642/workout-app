@@ -4,8 +4,8 @@ import { toast } from "react-toastify";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    "email":"",
-    "password":""
+    email:"",
+    password:""
   })
   const backend_url = process.env.REACT_APP_API_URL;
 
@@ -29,7 +29,7 @@ const Signup = () => {
   };
 
   const changeHandler = (e) =>{
-    setFormData()
+    setFormData({...formData,[e.target.name]:e.target.value});
   }
   return (
     <div>
@@ -38,15 +38,18 @@ const Signup = () => {
       <label>Email:</label>
       <input
         type="email"
+        name="email"
         onChange={changeHandler}
         value={formData.email}
       />
       <label>Password:</label>
       <input
         type="password"
+        name="password"
         onChange={changeHandler}
         value={formData.password}
       />
+      <button type="submit">Sign up</button>
       <p className="form-foot-signup">
         Already have an account ? <Link to="/login">Login</Link>
       </p>

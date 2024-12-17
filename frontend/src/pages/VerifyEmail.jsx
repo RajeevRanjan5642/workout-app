@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-
 const VerifyEmail = () => {
   const { token } = useParams();
   const navigate = useNavigate();

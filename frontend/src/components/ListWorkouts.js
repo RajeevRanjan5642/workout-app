@@ -1,40 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { toast } from "react-toastify";
 import WorkoutEditForm from "./WorkoutEditForm";
+import { WorkoutContext } from "../context/WorkoutContext";
 
 const ListWorkouts = () => {
   const backend_url = process.env.REACT_APP_API_URL;
 
-  const [workouts, setWorkouts] = useState([]);
+  const {workouts,fetchWorkouts} = useContext(WorkoutContext);
   const [showWhichEditForm, setShowWhichEditForm] = useState("");
   const [showEditForm, setShowEditForm] = useState(false);
 
   const user = JSON.parse(localStorage.getItem("user"));
-
-  useEffect(() => {}, [showWhichEditForm, workouts]);
-
-  const fetchWorkouts = async () => {
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/workouts`,
-      {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      }
-    );
-    const json = await response.json();
-    if (response.ok) {
-      setWorkouts(json);
-    } else {
-      toast.error(json.error);
-    }
-  };
-
-  useEffect(() => {
+  useEffect(()=>{
     fetchWorkouts();
-  }, []);
-
+  },[fetchWorkouts]);
   const deleteHandler = async (id) => {
     const response = await fetch(`${backend_url}/api/workouts/${id}`, {
       method: "DELETE",
@@ -49,6 +29,7 @@ const ListWorkouts = () => {
     }
     else await fetchWorkouts();
   };
+  
   const editHandler = (id) => {
     setShowWhichEditForm(id);
     setShowEditForm(true);
@@ -128,3 +109,6 @@ const ListWorkouts = () => {
 };
 
 export default ListWorkouts;
+
+
+// Workout validation failed: title: Path `title` is required., reps: Path `reps` is required., sets: Path `sets` is required., load: Path `load` is required.

@@ -8,15 +8,15 @@ import PageNotFound from "./pages/PageNotFound";
 import VerifyEmail from "./pages/VerifyEmail";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
-import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   return (
     <div className="App">
-      <ToastContainer/>
       <Router>
+        <ToastContainer/>
         <Navbar />
         <div className="pages">
           <Routes>

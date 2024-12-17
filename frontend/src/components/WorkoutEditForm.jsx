@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast} from "react-toastify";
+import {WorkoutContext} from "./../context/WorkoutContext";
 
 const WorkoutEditForm = ({
   workout,
@@ -8,6 +9,7 @@ const WorkoutEditForm = ({
   showWhichEditForm,
 }) => {
   const user = JSON.parse(localStorage.getItem("user"));
+  const {fetchWorkouts} = useContext(WorkoutContext);
 
   const [title, setTitle] = useState(workout.title);
   const [load, setLoad] = useState(workout.load);
@@ -18,7 +20,7 @@ const WorkoutEditForm = ({
     if (showWhichEditForm !== id) {
       setShowEditForm(false);
     }
-  });
+  },[id,showWhichEditForm,setShowEditForm]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -42,7 +44,7 @@ const WorkoutEditForm = ({
       body: JSON.stringify(workouts),
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${user.token}`,
+        "Authorization": `Bearer ${user.token}`,
       },
     });
     const json = await response.json();
@@ -51,16 +53,17 @@ const WorkoutEditForm = ({
       toast.error(json.error);
     }
 
-    if (response.ok) {
+    else{
       setShowEditForm(false);
       setTitle("");
       setLoad("");
       setReps("");
       setSets("");
+      await fetchWorkouts();
     }
   };
 
-  const clickHandler = ()=>{
+  const closeHandler = ()=>{
     setShowEditForm(false);
     setTitle("");
     setLoad("");
@@ -108,7 +111,7 @@ const WorkoutEditForm = ({
       <span
           className="material-symbols-outlined"
           style={{ marginRight: "45px" }}
-          onClick={clickHandler}
+          onClick={closeHandler}
         >
           close
         </span>
