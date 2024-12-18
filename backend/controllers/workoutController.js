@@ -7,6 +7,9 @@ exports.getAllWorkouts = async (req, res, next) => {
   const user_id = req.user._id;
   try {
     const workouts = await Workout.find({ user_id }).sort({ createdAt: -1 });
+    if (!workouts) {
+      return next(errorHandler(404, "Workouts not found"));
+    }
     res.status(200).json(workouts);
   } catch (err) {
     next(err);
@@ -36,7 +39,7 @@ exports.createWorkout = async (req, res, next) => {
   try {
     const user_id = req.user._id;
     const workout = await Workout.create({ title, load, reps, sets, user_id });
-    res.status(200).json(workout);
+    res.status(201).json(workout);
   } catch (err) {
     next(err);
   }
@@ -66,7 +69,7 @@ exports.updateWorkout = async (req, res, next) => {
     const updatedWorkout = await Workout.findByIdAndUpdate(id, req.body, {
       new: true,
     });
-    res.status(200).json(updatedWorkout);
+    res.status(201).json(updatedWorkout);
   } catch (err) {
     next(err);
   }

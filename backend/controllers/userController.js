@@ -40,8 +40,8 @@ exports.loginUser = async (req, res, next) => {
     const token = createToken(user._id);
     const isVerified = user.isVerified;
     res.status(200).json({ email, token, isVerified });
-  } catch (error) {
-    next(errorHandler(400, error.message));
+  } catch (err) {
+    next(err);
   }
 };
 
@@ -70,9 +70,7 @@ exports.signupUser = async (req, res, next) => {
       });
     } else if (existingUser && existingUser.isVerified) {
       return next(errorHandler(400, "Email already in use."));
-    }
-
-    else{
+    } else {
       const salt = await bcrypt.genSalt(10);
       const hash = await bcrypt.hash(password, salt);
       const user = await User.create({ email, password: hash });
@@ -86,8 +84,8 @@ exports.signupUser = async (req, res, next) => {
         message: "A verification link has been sent to your email.",
       });
     }
-  } catch (error) {
-    next(errorHandler(400, error.message));
+  } catch (err) {
+    next(err);
   }
 };
 
@@ -107,7 +105,7 @@ exports.verifyEmail = async (req, res, next) => {
     await user.save();
     res.status(200).json({ message: "Email verified successfully" });
   } catch (err) {
-    next(errorHandler(400, "Invalid or expired verification token"));
+    next(err);
   }
 };
 
@@ -143,8 +141,8 @@ exports.forgotPassword = async (req, res, next) => {
       token,
       message: "A reset password link has been sent to your email.",
     });
-  } catch (error) {
-    return next(errorHandler(400, error.message));
+  } catch (err) {
+    next(err);
   }
 };
 
@@ -165,7 +163,7 @@ exports.resetPassword = async (req, res, next) => {
     res.status(200).json({
       message: "Password has been reset successfully",
     });
-  } catch (error) {
-    return next(errorHandler(400, error.message));
+  } catch (err) {
+    next(err);
   }
 };

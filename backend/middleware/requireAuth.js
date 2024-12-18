@@ -6,7 +6,7 @@ const requireAuth = async (req, res, next) => {
   //verify authentication
   const { authorization } = req.headers;
   if (!authorization) {
-    return next(errorHandler(401, "Authorization token required"));
+    return next(errorHandler(401, "Request is not authorized"));
   }
 
   const token = authorization.split(" ")[1];
@@ -16,10 +16,7 @@ const requireAuth = async (req, res, next) => {
     req.user = await User.findOne({ _id }).select("_id");
     next();
   } catch (error) {
-    if (error.name === 'TokenExpiredError') {
-      return next(errorHandler(401, "Token has expired, please login again"));
-    }
-    return next(errorHandler(401, "Request is not authorized"));
+    return next(errorHandler(401, "Please login."));
   }
 };
 
