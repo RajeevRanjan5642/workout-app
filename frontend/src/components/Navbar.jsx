@@ -1,13 +1,12 @@
-import { Link, NavLink } from "react-router-dom";
-import {toast} from 'react-toastify';
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate();
 
   const logout = () =>{
     localStorage.removeItem("user");
-    toast.success("Logged out successfully.");
-    window.location.replace("/login");
+    navigate("/login");
   }
 
   return (

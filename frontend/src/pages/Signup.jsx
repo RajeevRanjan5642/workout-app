@@ -21,6 +21,10 @@ const Signup = () => {
 
     const json = await response.json();
     if (response.ok) {
+      setFormData({ 
+        email: "", 
+        password: "", 
+      });
       toast.success(json.message);
     }
     else{

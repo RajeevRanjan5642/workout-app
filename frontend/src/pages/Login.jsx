@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast} from "react-toastify";
@@ -6,18 +6,21 @@ import { toast} from "react-toastify";
 const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
   const backend_url = process.env.REACT_APP_API_URL;
 
   const [formData,setFormData] = useState({
     email:"",
     password:"",
-  })
+  });
+  const toastShown = useRef(false);
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
-    if (queryParams.get("verified") === "true") {
+    if (queryParams.get("verified") === "true" && !toastShown.current) {
       toast.success("Your email has been verified successfully! Please log in.")
       navigate('/login', { replace: true });
+      toastShown.current=true;
     }
   }, [location.search,navigate]);
 
@@ -33,7 +36,7 @@ const Login = () => {
     const json = await response.json();
     if(response.ok){
       localStorage.setItem("user", JSON.stringify(json));
-      toast.success("You're logged in.");
+      // toast.success("You're logged in.");
       window.location.replace("/");
     }
     else{

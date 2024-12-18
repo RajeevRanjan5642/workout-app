@@ -16,15 +16,15 @@ const App = () => {
   return (
     <div className="App">
       <Router>
-        <ToastContainer/>
+        <ToastContainer />
         <Navbar />
         <div className="pages">
           <Routes>
-            <Route path="/" element={user&&user.isVerified ? <Dashboard /> : <Home />} />
             <Route
-              path="/login"
-              element={<Login />}
+              path="/"
+              element={user && user.isVerified ? <Dashboard /> : <Home />}
             />
+            <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/verify-email/:token" element={<VerifyEmail />} />
             <Route path="/forgotPassword" element={<ForgotPassword />} />

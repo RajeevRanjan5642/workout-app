@@ -44,7 +44,7 @@ const WorkoutEditForm = ({
       body: JSON.stringify(workouts),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${user.token}`,
+        "Authorization": `Bearer ${user?.token}`,
       },
     });
     const json = await response.json();

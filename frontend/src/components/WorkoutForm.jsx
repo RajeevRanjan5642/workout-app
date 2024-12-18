@@ -23,7 +23,7 @@ const WorkoutForm = () => {
       body: JSON.stringify(formData),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${user.token}`,
+        "Authorization": `Bearer ${user?.token}`,
       },
     });
     const json = await response.json();
@@ -38,7 +38,6 @@ const WorkoutForm = () => {
         reps: "", 
         sets: "" 
       });
-      toast.success("Workout added successfully.")
       await fetchWorkouts();
     }
   };
