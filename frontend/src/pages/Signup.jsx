@@ -1,35 +1,59 @@
 import { useState } from "react";
-import { useSignup } from "../hooks/useSignup";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-
 const Signup = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { signup, isLoading} = useSignup();
+  const [formData, setFormData] = useState({
+    email:"",
+    password:""
+  })
+  const backend_url = process.env.REACT_APP_API_URL;
 
-  const handleSubmit = async (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    await signup(email, password);
+    const response = await fetch(`${backend_url}/api/users/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const json = await response.json();
+    if (response.ok) {
+      setFormData({ 
+        email: "", 
+        password: "", 
+      });
+      toast.success(json.message);
+    }
+    else{
+      toast.error(json.error);
+    }
   };
+
+  const changeHandler = (e) =>{
+    setFormData({...formData,[e.target.name]:e.target.value});
+  }
   return (
     <div>
-    <form action="" className="signup card" onSubmit={handleSubmit}>
+    <form action="" className="signup card" onSubmit={submitHandler}>
       <h3 className="form-heading">Sign up</h3>
       <label>Email:</label>
       <input
         type="email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
+        name="email"
+        onChange={changeHandler}
+        value={formData.email}
       />
       <label>Password:</label>
       <input
         type="password"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
+        name="password"
+        onChange={changeHandler}
+        value={formData.password}
       />
-      <button disabled={isLoading} type="submit">Sign up</button>
+      <button type="submit">Sign up</button>
       <p className="form-foot-signup">
         Already have an account ? <Link to="/login">Login</Link>
       </p>

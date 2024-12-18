@@ -5,10 +5,12 @@ import { toast } from "react-toastify";
 const ResetPassword = () => {
   const { token } = useParams();
   const [password, setPassword] = useState("");
+  const backend_url = process.env.REACT_APP_API_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/users/reset-password/${token}`,
+      `${backend_url}/api/users/reset-password/${token}`,
       {
         method: "POST",
         headers: {

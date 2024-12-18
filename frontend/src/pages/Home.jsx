@@ -4,7 +4,6 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <div className="home">
-      
       <div className="content">
         <h1 className="title">Your Daily Workout<br></br>Planner</h1>
         <p className="text">

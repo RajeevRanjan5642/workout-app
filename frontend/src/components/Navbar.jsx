@@ -1,10 +1,14 @@
-import { Link, NavLink } from "react-router-dom";
-import { useLogout } from "../hooks/useLogout";
-import { useAuthContext } from "../hooks/useAuthContext";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const { user } = useAuthContext();
-  const { logout } = useLogout();
+  const user = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate();
+
+  const logout = () =>{
+    localStorage.removeItem("user");
+    navigate("/login");
+  }
+
   return (
     <header>
       <div className="container">
@@ -28,6 +32,7 @@ const Navbar = () => {
       </div>
     </header>
   );
+  
 };
 
 export default Navbar;

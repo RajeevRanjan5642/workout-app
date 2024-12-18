@@ -2,11 +2,12 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 const ForgotPassword = () => {
+  const backend_url = process.env.REACT_APP_API_URL;
   const [email, setEmail] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/users/forgot-password`,
+      `${backend_url}/api/users/forgot-password`,
       {
         method: "POST",
         headers: {
