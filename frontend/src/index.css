@@ -37,8 +37,9 @@ header a {
 /* dashboard */
 .dashboard {
   display: flex;
-  gap: 100px;
+  gap: 50px;
   flex-wrap: wrap;
+  align-items: center;
 }
 .workouts{
   flex: 3;
@@ -71,7 +72,7 @@ header a {
 }
 .exercise{
   width: 100%;
-  height: 80vh;
+  height: 83vh;
 }
 
 /*home page*/
@@ -276,6 +277,12 @@ a{
   }
 }
 
+@media(max-width:1000px){
+  .dashboard{
+    gap: 0;
+  }
+}
+
 @media(max-width: 700px){
   .home-img{
     width: 100%;
@@ -306,6 +313,11 @@ a{
   .workouts, .create{
       width: 90%;
    }
+   .exercise{
+      width: 100%;
+      height: 100%;
+   }
+
 }
 
 @media (max-width: 515px) {
