@@ -148,7 +148,7 @@ form button {
   font-size: 24px;
 }
 .reset-password-form, .forgot-password-form{
-  width: 375px;
+  max-width: 375px;
   margin: 150px auto;
   background: #ed776b
 }
