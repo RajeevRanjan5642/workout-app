@@ -84,7 +84,7 @@ header a {
   height: 78vh;
 }
 .home .content{
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .home .btn{
   padding: 10px 35px;
@@ -190,7 +190,7 @@ nav button {
 /* auth forms */
 form.signup, form.login {
   max-width: 400px;
-  margin: 40px auto;
+  margin: 70px auto;
   background: #ed776b;
 }
 .form-foot-login{
@@ -276,6 +276,28 @@ a{
   }
 }
 
+@media(max-width: 700px){
+  .home-img{
+    width: 100%;
+  }
+   .home{
+    flex-direction: column;
+    gap: 20px;
+   }
+
+   .home .content{
+    margin-top: 0;
+   }
+
+  .home .title{
+    font-size: 80px;
+  }
+  .home .text{
+    font-size: 15px;
+    padding-right: 10px;
+  }
+}
+
  @media (max-width: 650px) {
   .dashboard {
       flex-direction: column;
@@ -284,19 +306,6 @@ a{
   .workouts, .create{
       width: 90%;
    }
-}
-
-@media(max-width: 700px){
-  .home-img{
-    display: none;
-  }
-  .home .title{
-    font-size: 80px;
-  }
-  .home .text{
-    font-size: 15px;
-    padding-right: 10px;
-  }
 }
 
 @media (max-width: 515px) {
