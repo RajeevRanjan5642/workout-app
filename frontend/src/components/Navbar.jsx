@@ -1,11 +1,12 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import useAuthContext from "../hooks/useAuthContext";
 
 const Navbar = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const {user,logout} = useAuthContext();
   const navigate = useNavigate();
 
-  const logout = () =>{
-    localStorage.removeItem("user");
+  const handleLogout = () =>{
+    logout();
     navigate("/login");
   }
 
@@ -19,7 +20,7 @@ const Navbar = () => {
           {user && user.isVerified?(
             <div>
               <span>{user.email}</span>
-              <button onClick={() => logout()}>Logout</button>
+              <button onClick={handleLogout}>Logout</button>
             </div>
           ):
           (

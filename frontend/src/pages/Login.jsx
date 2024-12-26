@@ -1,11 +1,13 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef} from "react";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast} from "react-toastify";
+import useAuthContext from "../hooks/useAuthContext";
 
 const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const {login} = useAuthContext();
 
   const backend_url = process.env.REACT_APP_API_URL;
 
@@ -35,8 +37,7 @@ const Login = () => {
     });
     const json = await response.json();
     if(response.ok){
-      localStorage.setItem("user", JSON.stringify(json));
-      // toast.success("You're logged in.");
+      login(json);
       window.location.replace("/");
     }
     else{

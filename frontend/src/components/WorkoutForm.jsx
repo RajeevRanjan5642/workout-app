@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { WorkoutContext } from "../context/WorkoutContext";
+import useAuthContext from "../hooks/useAuthContext";
 
 const WorkoutForm = () => {
 
@@ -13,7 +14,7 @@ const WorkoutForm = () => {
     sets:""
   });
 
-  const user =JSON.parse(localStorage.getItem("user"));
+  const {user} = useAuthContext();
   const backend_url = process.env.REACT_APP_API_URL;
 
   const submitHandler = async (e) => {

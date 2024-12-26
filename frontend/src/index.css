@@ -344,7 +344,10 @@ a{
     font-size: 14px;
   }
   nav button{
-    padding: 6px 12px;
+    padding: 5px 10px;
+  }
+  nav span{
+    font-size: 12px;
   }
   header .container{
     padding: 10px;

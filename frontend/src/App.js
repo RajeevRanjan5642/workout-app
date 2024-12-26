@@ -10,9 +10,10 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAuthContext from "./hooks/useAuthContext";
 
 const App = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const {user} = useAuthContext();
   return (
     <div className="App">
       <Router>

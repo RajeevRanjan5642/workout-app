@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { toast} from "react-toastify";
 import {WorkoutContext} from "./../context/WorkoutContext";
+import useAuthContext from "../hooks/useAuthContext";
 
 const WorkoutEditForm = ({
   workout,
@@ -8,7 +9,7 @@ const WorkoutEditForm = ({
   setShowEditForm,
   showWhichEditForm,
 }) => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const {user} = useAuthContext();
   const {fetchWorkouts} = useContext(WorkoutContext);
 
   const [title, setTitle] = useState(workout.title);
