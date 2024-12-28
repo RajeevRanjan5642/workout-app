@@ -39,7 +39,6 @@ header a {
   display: flex;
   gap: 50px;
   flex-wrap: wrap;
-  align-items: center;
 }
 .workouts{
   flex: 3;
@@ -309,6 +308,7 @@ a{
   .dashboard {
       flex-direction: column;
       gap: 20px;
+      align-items: center;
   }
   .workouts, .create{
       width: 90%;
