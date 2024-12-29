@@ -48,7 +48,7 @@ const WorkoutForm = () => {
   }
 
   return (
-    <div>
+    <div className="workout-create">
       <form action="" className="create card" onSubmit={submitHandler}>
         <h3 className="form-heading">Add a new workout</h3>
         <label>Exercise Title:</label>
