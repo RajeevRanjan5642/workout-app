@@ -76,4 +76,9 @@ The site is live at:
 🔗 https://muscle-map.vercel.app/
 
 ## Project Demo
+
+Desktop-View<br>
 https://github.com/user-attachments/assets/ed1971fc-e7d3-43ff-ab13-bdd0097c8a36
+
+Mobile-View<br>
+https://github.com/user-attachments/assets/d6778328-8e59-4dbf-977a-4f18cd39d7c5
